@@ -1,0 +1,41 @@
+.btn-flat,.flat-input,.flat-element
+{
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border-width: 1px;
+}
+
+.form-group.required .control-label:after { 
+    color: #d00;
+    content: "*";
+    position: absolute;
+    margin-left: 8px;
+    top:7px;
+}
+
+.form-group.required .ctl:after { 
+    color: #d00;
+    content: "*";
+    margin-left: 8px;
+    top:7px;
+}
+
+.dashboard-box
+{
+	border: 1px #ccc solid;
+	border-radius: 5px;
+	min-height:90px;	
+}
+
+.dashboard-box .box-left
+{
+	float: left;
+	width: 33%;	
+}
+
+.dashboard-box .box-right
+{
+	
+}
