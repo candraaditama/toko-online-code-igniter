@@ -3,6 +3,7 @@ echo asset_jqueryui();
 echo validation_errors();
 echo form_open_multipart(base_url('konfirmasi'),array('class'=>'form-horizontal'));
 ?>
+<div class="row g-4">
 <div class="col-md-6">
 	<div class="form-group">
 		<label class="col-sm-2 control-label" for="">No. Invoice</label>
@@ -71,7 +72,7 @@ echo form_open_multipart(base_url('konfirmasi'),array('class'=>'form-horizontal'
 		</div>
 	</div>
 </div>
-
+</div>
 
 <?php
 echo form_close();

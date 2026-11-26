@@ -1,0 +1,687 @@
+/*
+ * Penyempurnaan tampilan panel admin (AdminLTE 4 + Bootstrap 5.3).
+ * Dimuat setelah legacy.css agar bisa merapikan markup lama.
+ */
+
+:root {
+  --admin-radius: 14px;
+  --admin-shadow: 0 1px 2px rgba(16, 24, 40, .04), 0 12px 28px -22px rgba(16, 24, 40, .5);
+}
+
+[data-bs-theme="dark"] {
+  --admin-shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 14px 30px -22px rgba(0, 0, 0, .9);
+}
+
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  font-size: 14.5px;
+}
+
+/* ---------------------------------------------------------------
+ * Header
+ * --------------------------------------------------------------- */
+.app-header {
+  border-bottom: 1px solid var(--bs-border-color);
+  box-shadow: none;
+}
+
+.app-header .navbar-nav .nav-link {
+  color: var(--bs-body-color);
+  border-radius: 10px;
+  padding: .45rem .7rem;
+}
+
+.app-header .navbar-nav .nav-link:hover {
+  background: var(--bs-tertiary-bg);
+}
+
+.app-header .app-brand {
+  font-weight: 700;
+  font-size: 1.02rem;
+  letter-spacing: -.01em;
+  color: var(--bs-body-color);
+}
+
+.app-header .app-brand:hover {
+  color: var(--bs-primary);
+  text-decoration: none;
+}
+
+.app-header .user-toggle {
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+}
+
+.app-header .user-toggle .avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--bs-border-color);
+}
+
+.app-header .user-toggle .user-name {
+  font-weight: 600;
+  font-size: .9rem;
+  line-height: 1.1;
+}
+
+.app-header .user-toggle .user-role {
+  font-size: .72rem;
+  color: var(--bs-secondary-color);
+  text-transform: capitalize;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: 1px solid var(--bs-border-color);
+  border-radius: 50%;
+  background: var(--bs-body-bg);
+  color: var(--bs-body-color);
+  transition: background .15s ease, color .15s ease, border-color .15s ease;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus {
+  background: var(--bs-primary);
+  border-color: var(--bs-primary);
+  color: #fff;
+}
+
+/* ---------------------------------------------------------------
+ * Sidebar
+ * --------------------------------------------------------------- */
+.app-sidebar .brand-link {
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+
+.app-sidebar .sidebar-menu .nav-link {
+  border-radius: 10px;
+  margin: 1px 8px;
+  padding: .55rem .7rem;
+  font-size: .92rem;
+}
+
+.app-sidebar .sidebar-menu .nav-link p {
+  margin: 0;
+  font-weight: 500;
+}
+
+.app-sidebar .sidebar-menu .nav-link.active {
+  box-shadow: none;
+}
+
+.app-sidebar .nav-header {
+  padding: .9rem 1.1rem .35rem;
+  font-size: .7rem;
+  letter-spacing: .08em;
+  opacity: .6;
+}
+
+.app-sidebar .sidebar-menu .nav-treeview .nav-link {
+  font-size: .87rem;
+  padding-left: 1.4rem;
+}
+
+/* ---------------------------------------------------------------
+ * Konten
+ * --------------------------------------------------------------- */
+.app-content-header {
+  padding: 1.1rem 0 .35rem;
+}
+
+.app-content-header h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -.01em;
+}
+
+.app-content .card {
+  --bs-card-border-radius: var(--admin-radius);
+  border: 1px solid var(--bs-border-color);
+  box-shadow: var(--admin-shadow);
+}
+
+.app-content .card.card-outline {
+  border-top-width: 3px;
+}
+
+.app-content .card > .card-body {
+  padding: 1.4rem;
+}
+
+.app-content .card-body > h1,
+.app-content .card-body > h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: .35rem;
+}
+
+.app-content .card-body > h1 + p {
+  color: var(--bs-secondary-color);
+}
+
+/* Kotak statistik dashboard */
+.small-box {
+  border-radius: var(--admin-radius);
+  overflow: hidden;
+  box-shadow: var(--admin-shadow);
+  background-image: none;
+}
+
+.small-box > .inner {
+  padding: 1rem 1.1rem;
+}
+
+.small-box > .inner h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: .35rem;
+  white-space: normal;
+}
+
+.small-box > .inner p {
+  font-size: .84rem;
+  opacity: .95;
+}
+
+.small-box > .icon {
+  top: .35rem;
+  right: 1rem;
+  font-size: 3.4rem;
+  line-height: 1;
+  color: rgba(255, 255, 255, .25);
+}
+
+.small-box > .small-box-footer {
+  padding: .5rem 0;
+  font-size: .8rem;
+  font-weight: 600;
+}
+
+/* Kartu lama (box/panel) */
+.box,
+.panel {
+  border-radius: var(--admin-radius);
+  border-color: var(--bs-border-color);
+  box-shadow: var(--admin-shadow);
+}
+
+.box-header {
+  padding: .8rem 1.1rem;
+}
+
+.box-body {
+  padding: 1.1rem;
+}
+
+/* ---------------------------------------------------------------
+ * Form & tabel
+ * --------------------------------------------------------------- */
+.form-control,
+.form-select {
+  border-radius: 10px;
+  border-color: var(--bs-border-color);
+}
+
+.form-control:focus,
+.form-select:focus {
+  box-shadow: 0 0 0 3px rgba(13, 110, 253, .15);
+}
+
+.control-label {
+  font-weight: 600;
+  font-size: .86rem;
+}
+
+.form-horizontal .form-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.form-horizontal .control-label {
+  padding-top: .5rem;
+}
+
+.btn {
+  border-radius: 9px;
+  font-weight: 500;
+}
+
+.btn-xs {
+  border-radius: 7px;
+}
+
+.btn-flat {
+  border-radius: 9px;
+}
+
+.table {
+  --bs-table-bg: transparent;
+  margin-bottom: 0;
+  vertical-align: middle;
+}
+
+.table > :not(caption) > * > * {
+  padding: .65rem .75rem;
+  border-color: var(--bs-border-color);
+}
+
+.table > thead th {
+  background: var(--bs-tertiary-bg);
+  color: var(--bs-secondary-color);
+  font-size: .74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  white-space: nowrap;
+}
+
+.table-stripped > tbody > tr:nth-of-type(odd) > * {
+  background-color: rgba(var(--bs-body-color-rgb), .035);
+}
+
+.input-group-text {
+  border-radius: 10px;
+}
+
+/* Navbar di halaman login/profil lama */
+.navbar-brand {
+  font-weight: 700;
+}
+
+/* ---------------------------------------------------------------
+ * Halaman login
+ * --------------------------------------------------------------- */
+.login-page {
+  background:
+    radial-gradient(1100px 500px at 15% -10%, rgba(13, 110, 253, .18), transparent 60%),
+    radial-gradient(900px 500px at 90% 0%, rgba(25, 135, 84, .14), transparent 55%),
+    var(--bs-body-bg);
+  min-height: 100vh;
+}
+
+.login-page .login-box {
+  width: 400px;
+  max-width: calc(100% - 2rem);
+}
+
+.login-page .login-logo {
+  margin-bottom: 1rem;
+  font-size: 1.9rem;
+}
+
+.login-page .login-logo a {
+  color: var(--bs-body-color);
+}
+
+.login-page .login-logo b {
+  font-weight: 800;
+  letter-spacing: -.02em;
+}
+
+.login-page .card {
+  border: 1px solid var(--bs-border-color);
+  border-radius: 18px;
+  box-shadow: 0 24px 60px -30px rgba(16, 24, 40, .45);
+}
+
+.login-page .login-card-body {
+  padding: 2rem;
+  border-radius: 18px;
+}
+
+.login-page .login-box-msg {
+  margin-bottom: 1.25rem;
+  color: var(--bs-secondary-color);
+  font-size: .9rem;
+}
+
+.login-page .input-group-text {
+  background: var(--bs-tertiary-bg);
+  color: var(--bs-secondary-color);
+}
+
+.login-page .theme-toggle {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.25rem;
+  z-index: 10;
+}
+
+.login-page .login-footer {
+  margin-top: 1.25rem;
+  text-align: center;
+  font-size: .8rem;
+  color: var(--bs-secondary-color);
+}
+
+/* ---------------------------------------------------------------
+ * Penyesuaian mode gelap
+ * --------------------------------------------------------------- */
+[data-bs-theme="dark"] .app-wrapper {
+  background: #0b1220;
+}
+
+[data-bs-theme="dark"] .app-content {
+  background: #0b1220;
+}
+
+[data-bs-theme="dark"] .app-content-header {
+  background: transparent;
+}
+
+[data-bs-theme="dark"] .card {
+  --bs-card-bg: #111b2e;
+  --bs-card-border-color: #22304b;
+}
+
+[data-bs-theme="dark"] .app-footer {
+  background: transparent;
+  color: var(--bs-secondary-color);
+  border-top: 1px solid var(--bs-border-color);
+}
+
+[data-bs-theme="dark"] .app-footer a {
+  color: var(--bs-body-color);
+}
+
+[data-bs-theme="dark"] .well,
+[data-bs-theme="dark"] .panel,
+[data-bs-theme="dark"] .box {
+  background: #111b2e;
+  border-color: #22304b;
+}
+
+[data-bs-theme="dark"] .panel-heading,
+[data-bs-theme="dark"] .box-header,
+[data-bs-theme="dark"] .box-footer,
+[data-bs-theme="dark"] .panel-footer {
+  background: #16223a;
+  border-color: #22304b;
+}
+
+[data-bs-theme="dark"] .panel-default > .panel-heading {
+  color: var(--bs-body-color);
+  background: #16223a;
+  border-color: #22304b;
+}
+
+[data-bs-theme="dark"] .panel-primary > .panel-heading {
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+}
+
+[data-bs-theme="dark"] .nav-tabs-custom {
+  background: #111b2e;
+  border-color: #22304b;
+}
+
+[data-bs-theme="dark"] .nav-tabs-custom > .nav-tabs > li > a {
+  color: var(--bs-secondary-color);
+}
+
+[data-bs-theme="dark"] .nav-tabs-custom > .nav-tabs > li.active > a {
+  color: #6aa8ff;
+  border-bottom-color: #6aa8ff;
+}
+
+[data-bs-theme="dark"] .callout-info,
+[data-bs-theme="dark"] .callout-success,
+[data-bs-theme="dark"] .callout-warning,
+[data-bs-theme="dark"] .callout-danger {
+  background: #16223a;
+  color: var(--bs-body-color);
+  border-color: #22304b;
+}
+
+@media (max-width: 575.98px) {
+  .app-content .card > .card-body {
+    padding: 1rem;
+  }
+
+  .app-header .user-toggle .user-name,
+  .app-header .user-toggle .user-role {
+    display: none;
+  }
+}
+
+/* ------------------------------------------------------------------
+ * Penyeragaman permukaan (header, sidebar, konten)
+ * ------------------------------------------------------------------ */
+.app-sidebar {
+  background: var(--bs-body-bg) !important;
+  border-right: 1px solid var(--bs-border-color);
+}
+
+.app-sidebar .sidebar-brand {
+  border-bottom: 1px solid var(--bs-border-color);
+}
+
+.app-sidebar .brand-link {
+  border-bottom: 0;
+}
+
+.sidebar-menu .nav-link {
+  color: var(--bs-body-color);
+}
+
+.sidebar-menu .nav-link:hover {
+  background: var(--bs-tertiary-bg);
+  color: var(--bs-primary);
+}
+
+.sidebar-menu .nav-link.active {
+  background: var(--bs-primary);
+  color: #fff !important;
+}
+
+.app-header .app-brand {
+  color: var(--bs-secondary-color);
+  font-size: .86rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+[data-bs-theme="dark"] .app-header {
+  background: #0f1828 !important;
+  border-bottom-color: #22304b;
+}
+
+[data-bs-theme="dark"] .app-sidebar {
+  background: #0d1526 !important;
+  border-right-color: #22304b;
+}
+
+[data-bs-theme="dark"] .app-sidebar .sidebar-brand {
+  border-bottom-color: rgba(255, 255, 255, .08);
+}
+
+[data-bs-theme="dark"] .app-sidebar .brand-link,
+[data-bs-theme="dark"] .sidebar-menu .nav-link {
+  color: #c8d4e5;
+}
+
+[data-bs-theme="dark"] .sidebar-menu .nav-link:hover {
+  background: rgba(255, 255, 255, .06);
+  color: #fff;
+}
+
+[data-bs-theme="dark"] .sidebar-menu .nav-link.active {
+  background: #1d4ed8;
+  color: #fff !important;
+}
+
+[data-bs-theme="dark"] .app-header .app-brand {
+  color: #94a3b8;
+}
+
+.small-box > .inner h3 {
+  padding-right: 2.6rem;
+}
+
+.small-box > .icon {
+  font-size: 3rem;
+  right: 1rem;
+  top: .55rem;
+}
+
+/* DataTables (plugin lama) */
+.dataTables_wrapper {
+  padding-top: .35rem;
+}
+
+.dt-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.dt-buttons .dt-button,
+.dt-buttons .btn {
+  margin: 0 !important;
+  padding: .35rem .8rem;
+  border: 1px solid var(--bs-border-color) !important;
+  border-radius: 8px !important;
+  background: var(--bs-body-bg) !important;
+  color: var(--bs-body-color) !important;
+  font-size: .8rem;
+  font-weight: 500;
+  box-shadow: none;
+}
+
+.dt-buttons .dt-button:hover,
+.dt-buttons .btn:hover {
+  background: var(--bs-primary) !important;
+  border-color: var(--bs-primary) !important;
+  color: #fff !important;
+}
+
+.dataTables_wrapper .dataTables_filter input {
+  border: 1px solid var(--bs-border-color);
+  border-radius: 9px;
+  padding: .32rem .6rem;
+  background: var(--bs-body-bg);
+  color: var(--bs-body-color);
+  margin-left: .35rem;
+}
+
+.dataTables_wrapper .dataTables_length select {
+  border: 1px solid var(--bs-border-color);
+  border-radius: 9px;
+  padding: .25rem .4rem;
+  background: var(--bs-body-bg);
+  color: var(--bs-body-color);
+}
+
+.dataTables_wrapper .dataTables_paginate {
+  display: flex;
+  gap: 4px;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  border: 1px solid var(--bs-border-color) !important;
+  border-radius: 8px !important;
+  padding: .3rem .65rem !important;
+  margin: 0 !important;
+  background: var(--bs-body-bg) !important;
+  color: var(--bs-body-color) !important;
+  font-size: .8rem;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+  background: var(--bs-primary) !important;
+  border-color: var(--bs-primary) !important;
+  color: #fff !important;
+}
+
+.dataTables_wrapper .dataTables_info {
+  color: var(--bs-secondary-color);
+  font-size: .82rem;
+  padding-top: .6rem;
+}
+
+/* Tabel di dalam card */
+.card-body .table {
+  border: 1px solid var(--bs-border-color);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.card-body .table > :not(caption) > * > * {
+  border-color: var(--bs-border-color);
+}
+
+.card-body .table > thead th {
+  border-bottom: 1px solid var(--bs-border-color);
+}
+
+/* Form: lebar nyaman & select mengikuti tema */
+.card-body .form-horizontal {
+  max-width: 920px;
+}
+
+select.form-control,
+select.form-select {
+  background-color: var(--bs-body-bg);
+  color: var(--bs-body-color);
+  border: 1px solid var(--bs-border-color);
+  border-radius: 10px;
+  padding: .45rem .75rem;
+  min-height: 38px;
+}
+
+select.form-control:focus,
+select.form-select:focus {
+  border-color: var(--bs-primary);
+  box-shadow: 0 0 0 3px rgba(var(--bs-primary-rgb), .15);
+}
+
+/* Pesan validasi CodeIgniter tampil sebagai paragraf */
+.card-body > p {
+  margin-bottom: .35rem;
+  color: var(--bs-danger);
+  font-size: .86rem;
+}
+
+.card-body > p:empty {
+  display: none;
+}
+
+/* Indikator sort DataTables memakai font ikon lama; sembunyikan agar rapi */
+table.dataTable thead > tr > th::before,
+table.dataTable thead > tr > th::after {
+  display: none !important;
+}
+
+table.dataTable thead > tr > th {
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Pastikan item menu aktif selalu terbaca */
+.app-sidebar .sidebar-menu .nav-link.active,
+.app-sidebar .sidebar-menu .nav-treeview .nav-link.active {
+  background-color: #2563eb !important;
+  color: #fff !important;
+  box-shadow: none !important;
+}
+
+[data-bs-theme="dark"] .app-sidebar .sidebar-menu .nav-link.active,
+[data-bs-theme="dark"] .app-sidebar .sidebar-menu .nav-treeview .nav-link.active {
+  background-color: #1d4ed8 !important;
+  color: #fff !important;
+}

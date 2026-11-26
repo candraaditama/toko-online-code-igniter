@@ -1,27 +1,34 @@
 <?php
 $ref=$this->input->get('ref');
-echo validation_errors();
-echo form_open(base_url('login').'?ref='.$ref,array('class'=>'form-horizontal'));
 ?>
-<div class="form-group">
-	<label class="col-sm-2 control-label" for="">Username</label>
-	<div class="col-md-6">
-		<input type="text" name="username" id="" class="form-control " autocomplete="off" placeholder="Username" required="" value="<?php echo set_value('username'); ?>"/>
+<div class="auth-card">
+	<div class="auth-head">
+		<h2>Masuk ke Akun</h2>
+		<p>Masuk untuk melanjutkan belanja dan melihat histori pesanan Anda.</p>
 	</div>
-</div>
-<div class="form-group">
-	<label class="col-sm-2 control-label" for="">Password</label>
-	<div class="col-md-6">
-		<input type="password" name="password" id="" class="form-control " autocomplete="off" placeholder="Password" required="" value="<?php echo set_value('password'); ?>"/>
+
+	<?php
+	echo validation_errors();
+	echo form_open(base_url('login').'?ref='.$ref, array('class'=>'auth-form'));
+	?>
+
+	<div class="mb-3">
+		<label class="control-label" for="username">Username</label>
+		<input type="text" name="username" id="username" class="form-control" autocomplete="username" placeholder="Username" required value="<?php echo set_value('username'); ?>">
 	</div>
-</div>
-<div class="form-group">
-	<label class="col-sm-2 control-label">&nbsp;</label>
-	<div class="col-md-6">
-		<button type="submit" class="btn btn-primary btn-flat">Login</button>
-		<a href="<?=base_url();?>member/daftar?ref=<?=$ref;?>" class="btn btn-default btn-flat">Belum punya akun?</a>
+
+	<div class="mb-3">
+		<label class="control-label" for="password">Password</label>
+		<input type="password" name="password" id="password" class="form-control" autocomplete="current-password" placeholder="Password" required>
 	</div>
+
+	<button type="submit" class="btn btn-primary w-100">Masuk</button>
+
+	<div class="auth-alt">
+		Belum punya akun? <a href="<?=base_url();?>member/daftar?ref=<?=$ref;?>">Daftar sekarang</a>
+	</div>
+
+	<?php
+	echo form_close();
+	?>
 </div>
-<?php
-echo form_close();
-?>

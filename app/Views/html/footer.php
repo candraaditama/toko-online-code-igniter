@@ -1,90 +1,91 @@
-</div>
-        	<!-- End Featured -->
+			</div>
+			<!-- /.content-col -->
+	    </div>
+	    <!-- /.row -->
+	</main>
 
-        	<div class="clearfix visible-sm"></div>
-        </div>
-	</div>
+	<footer class="site-footer hidden-print">
+	    <div class="container">
+	        <div class="row g-4">
+	            <div class="col-lg-4 col-md-6">
+	                <div class="footer-brand">
+	                    <img src="<?=base_url();?>assets/images/food-stand.png" alt="<?=baca_konfig('company-name');?>">
+	                    <span><?=baca_konfig('company-name');?></span>
+	                </div>
+	                <p class="footer-about">Belanja kebutuhan fashion pilihan dengan proses mudah, pembayaran aman, dan pengiriman ke seluruh Indonesia.</p>
+	            </div>
 
-	<footer class="hidden-print">
-    	<div class="container">
-        	<div class="col-lg-3 col-md-3 col-sm-6">
-        		<div class="column">
-        			<h4>Information</h4>
-        			<ul>
-        				<?php
-							$dHalaman=$this->m_db->get_data('berita',array('jenis'=>'halaman'));
-							if(!empty($dHalaman))
-							{
-								foreach($dHalaman as $rHalaman)
-								{
-									$urlpage=base_url().'informasi/'.$rHalaman->slug;
-								?>
-								<li><a href="<?=$urlpage;?>"><?=$rHalaman->judul;?></a></li>
-								<?php
-								}
-							}
-							?>
-        			</ul>
-        		</div>
-        	</div>
-        	<div class="col-lg-3 col-md-3 col-sm-6">
-        		<div class="column">
-        			<h4>Kategori</h4>
-        			<ul>
-        				<?php
-		            	$dKat=produk_kategori();
-		            	if(!empty($dKat))
-		            	{
-							foreach($dKat as $rKat)
-							{
-								$slugCat=string_create_slug($rKat->nama_kategori);
-								$urlcat=base_url().'produk/kategori/'.$rKat->kategori_id.'/'.$slugCat;
-							?>
-							<li><a href="<?=$urlcat;?>"><?=$rKat->nama_kategori;?></a></li>
-							<?php
-							}
-						}
-		            	?>
-        			</ul>
-        		</div>
-        	</div>
-        	<div class="col-lg-3 col-md-3 col-sm-6">
-        		<div class="column">
-        			<h4>Kontak Info</h4>
-        			<ul>
-        				<li><a href="<?=base_url();?>kontak-kami">Kontak Kami</a></li>
-        				<li><a href="#"><?=baca_konfig('company-name');?></a></li>
-        				<li><a href="#"><i class="fa fa-phone"></i> <?=baca_konfig('company-phone');?></a></li>
-        				<li><a href="#"><i class="fa fa-envelope"></i> <?=baca_konfig('company-email');?></a></li>
-        			</ul>
-        		</div>
-        	</div>
-        	<div class="col-lg-3 col-md-3 col-sm-6">
-        		<div class="column">
-        			<h4>Follow Us</h4>
-        			<ul class="social">
-        				<li><a href="#">Google Plus</a></li>
-        				<li><a href="#">Facebook</a></li>
-        				<li><a href="#">Twitter</a></li>
-        				<li><a href="#">RSS Feed</a></li>
-        			</ul>
-        		</div>
-        	</div>
-        </div>
-        <div class="navbar-inverse text-center copyright">
-        	Copyright &copy; <?=date("Y");?> Online Shop
-        </div>
-    </footer>
+	            <div class="col-lg-3 col-md-6 col-6">
+	                <h4>Informasi</h4>
+	                <ul>
+	                    <?php
+	                    $dHalaman=$this->m_db->get_data('berita',array('jenis'=>'halaman'));
+	                    if(!empty($dHalaman))
+	                    {
+	                    	foreach($dHalaman as $rHalaman)
+	                    	{
+	                    		$urlpage=base_url().'informasi/'.$rHalaman->slug;
+	                    	?>
+	                    	<li><a href="<?=$urlpage;?>"><?=$rHalaman->judul;?></a></li>
+	                    	<?php
+	                    	}
+	                    }
+	                    ?>
+	                    <li><a href="<?=base_url();?>kontak-kami">Kontak Kami</a></li>
+	                </ul>
+	            </div>
 
-    <a href="#top" class="back-top text-center hidden-print" onclick="$('body,html').animate({scrollTop:0},500); return false">
-    	<i class="fa fa-angle-double-up"></i>
-    </a>
+	            <div class="col-lg-2 col-md-6 col-6">
+	                <h4>Kategori</h4>
+	                <ul>
+	                    <?php
+	                    $dKat=produk_kategori();
+	                    if(!empty($dKat))
+	                    {
+	                    	foreach($dKat as $rKat)
+	                    	{
+	                    		$slugCat=string_create_slug($rKat->nama_kategori);
+	                    		$urlcat=base_url().'produk/kategori/'.$rKat->kategori_id.'/'.$slugCat;
+	                    	?>
+	                    	<li><a href="<?=$urlcat;?>"><?=$rKat->nama_kategori;?></a></li>
+	                    	<?php
+	                    	}
+	                    }
+	                    ?>
+	                </ul>
+	            </div>
 
-    
-    <script src="<?=base_url();?>assets/html/js/bootstrap.bundle.min.js"></script>
-    <script src="<?=base_url();?>assets/tema/lte/dist/js/legacy.js"></script>
-    <script src="<?=base_url();?>assets/html/js/jquery.bxslider.min.js"></script>
-    <script src="<?=base_url();?>assets/html/js/jquery.blImageCenter.js"></script>
-    <script src="<?=base_url();?>assets/html/js/mimity.js"></script>
+	            <div class="col-lg-3 col-md-6">
+	                <h4>Hubungi Kami</h4>
+	                <ul>
+	                    <li><i class="fa fa-phone"></i> <?=baca_konfig('company-phone');?></li>
+	                    <li><i class="fa fa-envelope"></i> <?=baca_konfig('company-email');?></li>
+	                    <li><i class="fa fa-map-marker"></i> <?=baca_konfig('company-address');?></li>
+	                </ul>
+	            </div>
+	        </div>
+
+	        <div class="footer-bottom">
+	            <span>Copyright &copy; <?=date("Y");?> <?=baca_konfig('company-name');?>. All rights reserved.</span>
+	            <span>Belanja aman &middot; Pengiriman cepat</span>
+	        </div>
+	    </div>
+	</footer>
+
+	<a href="#konten-utama" class="back-top text-center" aria-label="Kembali ke atas">
+	    <i class="fa fa-angle-double-up"></i>
+	</a>
+
+	<script src="<?=base_url();?>assets/html/js/bootstrap.bundle.min.js"></script>
+	<script src="<?=base_url();?>assets/theme.js"></script>
+	<script src="<?=base_url();?>assets/tema/lte/dist/js/legacy.js"></script>
+	<script src="<?=base_url();?>assets/html/js/jquery.bxslider.min.js"></script>
+	<script src="<?=base_url();?>assets/html/js/jquery.blImageCenter.js"></script>
+	<script src="<?=base_url();?>assets/html/js/mimity.js"></script>
+	<script>
+	$(window).on('scroll', function () {
+	    if ($(this).scrollTop() > 300) { $('.back-top').fadeIn(); } else { $('.back-top').fadeOut(); }
+	});
+	</script>
 </body>
 </html>

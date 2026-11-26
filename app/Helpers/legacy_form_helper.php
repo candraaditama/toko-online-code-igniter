@@ -239,6 +239,12 @@ if (! function_exists('set_radio')) {
 if (! function_exists('validation_errors')) {
     function validation_errors(string $prefix = '<p>', string $suffix = '</p>'): string
     {
+        // Jangan tampilkan error validasi pada kunjungan biasa (GET),
+        // hanya setelah formulir dikirim.
+        if (strtoupper($_SERVER['REQUEST_METHOD'] ?? 'GET') !== 'POST') {
+            return '';
+        }
+
         $errors = LegacyFormValidation::lastErrors();
 
         if ($errors === []) {

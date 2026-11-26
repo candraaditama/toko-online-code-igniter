@@ -9,6 +9,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <title><?=$judul;?></title>
   <link rel="shortcut icon" href="<?php echo tema_logo();?>" type="image/x-icon" />
   <link rel="apple-touch-icon-precomposed" href="<?php echo tema_logo();?>">
+  <script>
+  (function () {
+    try {
+      var mode = localStorage.getItem('theme');
+      if (mode !== 'dark' && mode !== 'light') {
+        mode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      document.documentElement.setAttribute('data-bs-theme', mode);
+    } catch (e) {}
+  })();
+  </script>
   <!-- Font Awesome 6 (with v4 shims for legacy "fa fa-*" icons) -->
   <link rel="stylesheet" href="<?=base_url();?>assets/tema/lte/plugins/font-awesome/css/all.min.css">
   <link rel="stylesheet" href="<?=base_url();?>assets/tema/lte/plugins/font-awesome/css/v4-shims.min.css">
@@ -26,12 +37,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   echo add_css(base_url().'assets/style.css');
   echo add_js(base_url().'assets/custom.js');
   ?>
+  <!-- Panel refinements + dark mode (dimuat terakhir agar menimpa style lama) -->
+  <link rel="stylesheet" href="<?=base_url();?>assets/tema/lte/dist/css/admin-theme.css">
 </head>
 <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
 <div class="app-wrapper">
 
   <!-- ============ Header ============ -->
-  <nav class="app-header navbar navbar-expand bg-white border-bottom">
+  <nav class="app-header navbar navbar-expand bg-body">
     <div class="container-fluid">
       <ul class="navbar-nav">
         <li class="nav-item">
@@ -39,28 +52,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <i class="fa fa-bars"></i>
           </a>
         </li>
-        <li class="nav-item d-none d-md-block">
-          <a href="<?=base_url(akses().'/dashboard');?>" class="nav-link fw-semibold">
-            <?=baca_konfig('nama-aplikasi');?>
-          </a>
-        </li>
       </ul>
 
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle d-flex align-items-center gap-2" href="#" data-bs-toggle="dropdown" role="button">
-            <img src="<?=user_photo();?>" class="rounded-circle" style="width:30px;height:30px;object-fit:cover;" alt="User Image">
-            <span class="d-none d-sm-inline"><?=user_info('nama');?></span>
+      <ul class="navbar-nav ms-auto align-items-center gap-1">
+        <li class="nav-item d-none d-sm-block">
+          <a class="nav-link" href="<?=base_url();?>" target="_blank" title="Lihat toko">
+            <i class="fa fa-external-link"></i>
           </a>
-          <ul class="dropdown-menu dropdown-menu-end">
-            <li class="text-center px-3 py-2">
-              <img src="<?=user_photo();?>" class="rounded-circle mb-2" style="width:72px;height:72px;object-fit:cover;" alt="User Image">
+        </li>
+        <li class="nav-item">
+          <button type="button" class="theme-toggle js-theme-toggle ms-1 me-2" aria-label="Ganti tema" title="Mode gelap">
+            <i class="fa fa-moon"></i>
+          </button>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle user-toggle" href="#" data-bs-toggle="dropdown" role="button" aria-expanded="false">
+            <img src="<?=user_photo();?>" class="avatar" alt="<?=user_info('nama');?>">
+            <span class="d-none d-md-flex flex-column text-start">
+              <span class="user-name"><?=user_info('nama');?></span>
+              <span class="user-role"><?=user_info('akses');?></span>
+            </span>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end shadow">
+            <li class="text-center px-3 py-3">
+              <img src="<?=user_photo();?>" class="rounded-circle mb-2" style="width:72px;height:72px;object-fit:cover;" alt="<?=user_info('nama');?>">
               <div class="fw-semibold"><?=user_info('nama');?></div>
-              <div class="small text-body-secondary"><?=user_info('akses');?></div>
+              <div class="small text-body-secondary text-capitalize"><?=user_info('akses');?></div>
             </li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="<?=base_url();?>profil">Profile</a></li>
-            <li><a class="dropdown-item" href="<?=base_url();?>logout">Sign out</a></li>
+            <li><a class="dropdown-item" href="<?=base_url();?>profil"><i class="fa fa-user me-2"></i>Profile</a></li>
+            <li><a class="dropdown-item" href="<?=base_url();?>logout"><i class="fa fa-sign-out me-2"></i>Sign out</a></li>
           </ul>
         </li>
       </ul>
@@ -68,7 +89,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </nav>
 
   <!-- ============ Sidebar ============ -->
-  <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
+  <aside class="app-sidebar bg-body-secondary shadow">
     <div class="sidebar-brand">
       <a href="<?=base_url(akses().'/dashboard');?>" class="brand-link">
         <span class="brand-text fw-semibold"><?=baca_konfig('nama-aplikasi');?></span>
@@ -148,8 +169,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <main class="app-main">
     <div class="app-content-header">
       <div class="container-fluid">
-        <div class="row">
-          <div class="col-sm-6">
+        <div class="row align-items-center">
+          <div class="col-sm-8">
             <h3 class="mb-0"><?=$judul;?></h3>
           </div>
         </div>
@@ -157,7 +178,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
     <div class="app-content">
       <div class="container-fluid">
-        <div class="card card-outline card-primary">
+        <div class="card card-outline card-primary shadow-sm">
           <div class="card-body">
         <?php
         $msgHeader=$this->session->flashdata('message_header');

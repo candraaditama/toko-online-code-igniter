@@ -23,5 +23,7 @@
 <script src="<?=base_url();?>assets/tema/lte/dist/js/adminlte.min.js"></script>
 <!-- Compatibility shim for legacy Bootstrap 3 / AdminLTE 2 attributes and icons -->
 <script src="<?=base_url();?>assets/tema/lte/dist/js/legacy.js"></script>
+<!-- Light / dark theme toggle -->
+<script src="<?=base_url();?>assets/theme.js"></script>
 </body>
 </html>
