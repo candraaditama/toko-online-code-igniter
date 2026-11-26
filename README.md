@@ -2,7 +2,6 @@
 
 Aplikasi toko online sederhana (katalog produk, keranjang, pemesanan, pembayaran, tracking order, CMS, dan multi-role admin) yang dibangun dengan **CodeIgniter 4**, **MySQL**, **Bootstrap 5**, dan **AdminLTE 4**.
 
-Kode aplikasi asli (controller, model, view, helper, library) dipertahankan dan dijalankan melalui lapisan kompatibilitas CodeIgniter 3 di `app/Compat/`, sehingga alur dan URL lama tetap berjalan.
 
 ---
 
@@ -93,7 +92,7 @@ Gunakan akun berikut untuk masuk ke panel admin melalui halaman **`/login`**:
 | `admin` | `admin` | Administrator | `/admin/dashboard` |
 | `op` | `op` | Operator | `/op/dashboard` |
 
-> **Catatan:** akun `bos`, `supplier` (`s1`), dan member (`heru`, `jkt`) juga tersedia di database, tetapi password aslinya tidak disertakan. Password disimpan sebagai hash MD5 di tabel `userlogin`; gunakan fitur reset/ubah password atau perbarui langsung lewat database bila diperlukan.
+> **Catatan:** akun `bos`, `supplier` (`s1`), dan member (`heru`, `jkt`) juga tersedia di database, dengan password kata yang sama. Password disimpan sebagai hash MD5 di tabel `userlogin`; gunakan fitur reset/ubah password atau perbarui langsung lewat database bila diperlukan.
 
 ---
 
