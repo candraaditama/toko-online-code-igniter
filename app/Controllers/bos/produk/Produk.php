@@ -1,4 +1,9 @@
 <?php
+
+namespace App\Controllers\Bos\Produk;
+
+use CI_Controller;
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Produk extends CI_Controller {
@@ -70,10 +75,10 @@ class Produk extends CI_Controller {
 			{
 				$produkid=$this->m_db->last_insert_id();
 				set_header_message('success','Tambah Produk','Berhasil menambah produk');
-				redirect(base_url(akses().'/produk/produk'),'refresh',301);
+				legacy_redirect(base_url(akses().'/produk/produk'),'refresh',301);
 			}else{
 				set_header_message('danger','Tambah Produk','Gagal menambah produk');
-				redirect(base_url(akses().'/produk/produk/add'),'refresh',301);
+				legacy_redirect(base_url(akses().'/produk/produk/add'),'refresh',301);
 			}
 		}else{
 			$meta['judul']="Tambah Produk";
@@ -109,10 +114,10 @@ class Produk extends CI_Controller {
 			if($this->mod_produk->produk_edit($produkid,$kode,$nama,$supplier,$merek,$kategori,$deskripsi,$harga,$berat,$photo)==TRUE)
 			{				
 				set_header_message('success','Ubah Produk','Berhasil mengubah produk');
-				redirect(base_url(akses().'/produk/produk'),'refresh',301);
+				legacy_redirect(base_url(akses().'/produk/produk'),'refresh',301);
 			}else{
 				set_header_message('danger','Ubah Produk','Gagal mengubah produk');
-				redirect(base_url(akses().'/produk/produk'),'refresh',301);
+				legacy_redirect(base_url(akses().'/produk/produk'),'refresh',301);
 			}
 		}else{
 			$id=$this->input->get('id',TRUE);
@@ -130,10 +135,10 @@ class Produk extends CI_Controller {
 		if($this->mod_produk->produk_delete($produkid)==TRUE)
 		{			
 			set_header_message('success','Hapus Produk','Berhasil menghapus produk');
-			redirect(base_url(akses().'/produk/produk'),'refresh',301);
+			legacy_redirect(base_url(akses().'/produk/produk'),'refresh',301);
 		}else{
 			set_header_message('danger','Hapus Produk','Gagal menghapus produk');
-			redirect(base_url(akses().'/produk/produk'),'refresh',301);
+			legacy_redirect(base_url(akses().'/produk/produk'),'refresh',301);
 		}
 	}
 }

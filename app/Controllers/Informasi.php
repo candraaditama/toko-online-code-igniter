@@ -1,4 +1,9 @@
 <?php
+
+namespace App\Controllers;
+
+use CI_Controller;
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Informasi extends CI_Controller

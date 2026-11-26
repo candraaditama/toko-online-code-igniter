@@ -1,4 +1,9 @@
 <?php
+
+namespace App\Controllers\Admin;
+
+use CI_Controller;
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Konfigurasi extends CI_Controller {
@@ -34,7 +39,7 @@ class Konfigurasi extends CI_Controller {
 			);
 			$this->m_db->edit_row('konfigurasi',$d,$s);
 		}
-		redirect(base_url(akses().'/konfigurasi'));
+		legacy_redirect(base_url(akses().'/konfigurasi'));
 	}
 	
 	function tema()
@@ -57,7 +62,7 @@ class Konfigurasi extends CI_Controller {
 			);
 			$this->m_db->edit_row('konfigurasi',$d,$s);
 		}
-		redirect(base_url(akses().'/konfigurasi/tema'));
+		legacy_redirect(base_url(akses().'/konfigurasi/tema'));
 	}
 	
 	function logoupdate()

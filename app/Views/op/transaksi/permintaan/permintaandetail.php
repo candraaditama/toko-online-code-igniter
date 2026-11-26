@@ -1,7 +1,7 @@
 <?php
 if(empty($data))
 {
-	redirect(base_url(akses().'/transaksi/permintaan'));
+	legacy_redirect(base_url(akses().'/transaksi/permintaan'));
 }
 foreach($data as $row){	
 }

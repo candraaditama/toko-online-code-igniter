@@ -1,11 +1,13 @@
 <?php
 
+namespace App\Libraries\RajaOngkir;
+
 /**
  * RajaOngkir Endpoints
  * 
  * @author Damar Riyadi <damar@tahutek.net>
  */
-require_once 'Restclient.php';
+require_once __DIR__ . '/Restclient.php';
 
 class Endpoints {
 

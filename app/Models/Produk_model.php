@@ -1,4 +1,9 @@
 <?php
+
+namespace App\Models;
+
+use CI_Model;
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Produk_model extends CI_Model
 {

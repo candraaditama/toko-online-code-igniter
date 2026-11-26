@@ -1,7 +1,7 @@
 <?php
 if(empty($data))
 {
-	redirect(base_url(akses().'/cms/berita'));
+	legacy_redirect(base_url(akses().'/cms/berita'));
 }
 foreach($data as $row){	
 }

@@ -1,4 +1,9 @@
 <?php
+
+namespace App\Controllers;
+
+use CI_Controller;
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Pembayaran extends CI_Controller
@@ -27,7 +32,7 @@ class Pembayaran extends CI_Controller
 			$this->load->view('html/page/tagihanview',$d);
 			$this->load->view('html/footer');
 		}else{
-			//redirect(base_url());
+			//legacy_redirect(base_url());
 		}	
 	}
 	
@@ -91,7 +96,7 @@ class Pembayaran extends CI_Controller
 			);
 			if($this->m_db->is_bof('penjualan_konfirmasi',$s)==FALSE)
 			{
-				redirect(base_url().'tracking'.'?invoice='.$invoice);
+				legacy_redirect(base_url().'tracking'.'?invoice='.$invoice);
 			}else{
 				if($this->m_db->add_row('penjualan_konfirmasi',$d)==TRUE)
 				{
@@ -99,9 +104,9 @@ class Pembayaran extends CI_Controller
 					'status'=>'konfirmasi',
 					);
 					$this->m_db->edit_row('penjualan',$d2,$s);
-					redirect(base_url().'tracking'.'?invoice='.$invoice);
+					legacy_redirect(base_url().'tracking'.'?invoice='.$invoice);
 				}else{
-					redirect(base_url().'konfirmasi?s=1');
+					legacy_redirect(base_url().'konfirmasi?s=1');
 				}
 			}
 		}else{

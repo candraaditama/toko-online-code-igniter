@@ -2,7 +2,7 @@
 echo asset_datatables();
 if(empty($data))
 {
-	redirect(base_url(akses().'/transaksi/mutasi'));
+	legacy_redirect(base_url(akses().'/transaksi/mutasi'));
 }
 foreach($data as $row)
 {	

@@ -1,7 +1,7 @@
 <?php
 if(empty($data))
 {
-	redirect(base_url(akses().'/mitra/supplier'),'refresh',301);
+	legacy_redirect(base_url(akses().'/mitra/supplier'),'refresh',301);
 }
 foreach($data as $row){	
 }

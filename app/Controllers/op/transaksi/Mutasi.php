@@ -1,4 +1,9 @@
 <?php
+
+namespace App\Controllers\Op\Transaksi;
+
+use CI_Controller;
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Mutasi extends CI_Controller {
@@ -101,10 +106,10 @@ class Mutasi extends CI_Controller {
 				if($this->mod_trans->mutasi_add($toko,$tanggal,$keterangan,$output)==TRUE)
 				{
 					set_header_message('success','Tambah Mutasi','Berhasil Tambah Mutasi Stok');
-					redirect(base_url(akses().'/transaksi/mutasi'));
+					legacy_redirect(base_url(akses().'/transaksi/mutasi'));
 				}else{
 					set_header_message('danger','Tambah Mutasi','Gagal Tambah Mutasi Stok');
-					redirect(base_url(akses().'/transaksi/mutasi/add'));
+					legacy_redirect(base_url(akses().'/transaksi/mutasi/add'));
 				}
 				
 			}else{
@@ -115,7 +120,7 @@ class Mutasi extends CI_Controller {
 			}			
 		
 		}else{
-			redirect(base_url(akses().'/transaksi/mutasi'));
+			legacy_redirect(base_url(akses().'/transaksi/mutasi'));
 		}
 	}
 	

@@ -1,7 +1,7 @@
 <?php
 if(empty($data))
 {
-redirect(base_url(akses().'/produk/merek'));
+legacy_redirect(base_url(akses().'/produk/merek'));
 }
 foreach($data as $row){ 	
 }

@@ -1,0 +1,344 @@
+/*
+ * Compatibility layer for legacy AdminLTE 2 / Bootstrap 3 markup rendered
+ * inside AdminLTE 4 + Bootstrap 5.3.
+ */
+
+/* ------------------------------------------------------------------
+ * AdminLTE 3 colour names missing from adminlte-colors-v3
+ * ------------------------------------------------------------------ */
+.bg-aqua { background-color: #00c0ef !important; color: #fff !important; }
+.bg-light-blue { background-color: #3c8dbc !important; color: #fff !important; }
+.bg-gray { background-color: #d2d6de !important; color: #444 !important; }
+.bg-black { background-color: #111 !important; color: #fff !important; }
+.bg-aqua a, .bg-light-blue a, .bg-black a { color: #fff; }
+
+/* ------------------------------------------------------------------
+ * Grid: Bootstrap 3 col-xs-* (applies at every width, but lower
+ * specificity so col-sm/md/lg still win)
+ * ------------------------------------------------------------------ */
+:where(.col-xs-1)  { flex: 0 0 auto; width: 8.33333333%; }
+:where(.col-xs-2)  { flex: 0 0 auto; width: 16.66666667%; }
+:where(.col-xs-3)  { flex: 0 0 auto; width: 25%; }
+:where(.col-xs-4)  { flex: 0 0 auto; width: 33.33333333%; }
+:where(.col-xs-5)  { flex: 0 0 auto; width: 41.66666667%; }
+:where(.col-xs-6)  { flex: 0 0 auto; width: 50%; }
+:where(.col-xs-7)  { flex: 0 0 auto; width: 58.33333333%; }
+:where(.col-xs-8)  { flex: 0 0 auto; width: 66.66666667%; }
+:where(.col-xs-9)  { flex: 0 0 auto; width: 75%; }
+:where(.col-xs-10) { flex: 0 0 auto; width: 83.33333333%; }
+:where(.col-xs-11) { flex: 0 0 auto; width: 91.66666667%; }
+:where(.col-xs-12) { flex: 0 0 auto; width: 100%; }
+:where(.col-xs-offset-1)  { margin-left: 8.33333333%; }
+:where(.col-xs-offset-2)  { margin-left: 16.66666667%; }
+:where(.col-xs-offset-3)  { margin-left: 25%; }
+:where(.col-xs-offset-4)  { margin-left: 33.33333333%; }
+
+/* ------------------------------------------------------------------
+ * Helpers removed in Bootstrap 5
+ * ------------------------------------------------------------------ */
+.pull-right { float: right !important; }
+.pull-left { float: left !important; }
+.img-responsive { display: block; max-width: 100%; height: auto; }
+.center-block { display: block; margin-right: auto; margin-left: auto; }
+.hidden { display: none !important; }
+.caret {
+  display: inline-block; width: 0; height: 0; margin-left: 2px;
+  vertical-align: middle; border-top: 4px dashed;
+  border-right: 4px solid transparent; border-left: 4px solid transparent;
+}
+.divider { height: 1px; margin: 9px 0; overflow: hidden; background-color: #e5e5e5; }
+.dropdown-menu > li.divider { height: 1px; margin: 4px 0; background-color: var(--bs-border-color-translucent); }
+
+@media (max-width: 767.98px) { .hidden-xs { display: none !important; } }
+@media (min-width: 768px) and (max-width: 991.98px) { .hidden-sm { display: none !important; } }
+@media (min-width: 992px) and (max-width: 1199.98px) { .hidden-md { display: none !important; } }
+@media (min-width: 1200px) { .hidden-lg { display: none !important; } }
+.visible-xs, .visible-sm, .visible-md, .visible-lg { display: none !important; }
+@media (max-width: 767.98px) { .visible-xs { display: block !important; } }
+@media (min-width: 768px) and (max-width: 991.98px) { .visible-sm { display: block !important; } }
+@media (min-width: 992px) and (max-width: 1199.98px) { .visible-md { display: block !important; } }
+@media (min-width: 1200px) { .visible-lg { display: block !important; } }
+@media print { .hidden-print { display: none !important; } }
+
+/* ------------------------------------------------------------------
+ * Buttons
+ * ------------------------------------------------------------------ */
+.btn-default {
+  --bs-btn-color: #333;
+  --bs-btn-bg: #fff;
+  --bs-btn-border-color: #ccc;
+  --bs-btn-hover-color: #333;
+  --bs-btn-hover-bg: #e6e6e6;
+  --bs-btn-hover-border-color: #adadad;
+  --bs-btn-active-color: #333;
+  --bs-btn-active-bg: #e6e6e6;
+  --bs-btn-active-border-color: #adadad;
+  --bs-btn-disabled-color: #333;
+  --bs-btn-disabled-bg: #fff;
+  --bs-btn-disabled-border-color: #ccc;
+}
+.btn-flat { border-radius: 0 !important; }
+.btn-xs {
+  --bs-btn-padding-y: .15rem;
+  --bs-btn-padding-x: .3rem;
+  --bs-btn-font-size: .75rem;
+  --bs-btn-border-radius: .2rem;
+}
+.btn-md {
+  --bs-btn-padding-y: .4rem;
+  --bs-btn-padding-x: .75rem;
+  --bs-btn-font-size: .95rem;
+}
+.btn-group-xs > .btn { --bs-btn-padding-y: .15rem; --bs-btn-padding-x: .3rem; --bs-btn-font-size: .75rem; }
+.btn-block { display: block; width: 100%; }
+
+/* ------------------------------------------------------------------
+ * Labels -> badges
+ * ------------------------------------------------------------------ */
+.label {
+  display: inline-block; padding: .25em .6em; font-size: 75%; font-weight: 700;
+  line-height: 1; color: #fff; text-align: center; white-space: nowrap;
+  vertical-align: baseline; border-radius: .25rem;
+}
+.label-default { background-color: #777; }
+.label-primary { background-color: #337ab7; }
+.label-success { background-color: #5cb85c; }
+.label-info { background-color: #5bc0de; }
+.label-warning { background-color: #f0ad4e; }
+.label-danger { background-color: #d9534f; }
+
+/* ------------------------------------------------------------------
+ * Wells, panels, thumbnails
+ * ------------------------------------------------------------------ */
+.well {
+  min-height: 20px; padding: 19px; margin-bottom: 20px;
+  background-color: var(--bs-tertiary-bg);
+  border: 1px solid var(--bs-border-color-translucent);
+  border-radius: .5rem;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+}
+.well-sm { padding: 9px; border-radius: .375rem; }
+.well-lg { padding: 24px; border-radius: .5rem; }
+.well p:last-child { margin-bottom: 0; }
+
+.panel {
+  margin-bottom: 1.25rem; background-color: var(--bs-body-bg);
+  border: 1px solid var(--bs-border-color-translucent);
+  border-radius: .5rem;
+  box-shadow: 0 0 1px rgba(0, 0, 0, .125), 0 1px 3px rgba(0, 0, 0, .2);
+}
+.panel-heading {
+  padding: .75rem 1rem; border-bottom: 1px solid var(--bs-border-color-translucent);
+  background-color: var(--bs-tertiary-bg);
+  border-radius: calc(.5rem - 1px) calc(.5rem - 1px) 0 0;
+}
+.panel-title { margin: 0; font-size: 1rem; font-weight: 600; }
+.panel-title > a { text-decoration: none; }
+.panel-body { padding: 1rem; }
+.panel-body::after { display: block; clear: both; content: ""; }
+.panel-footer {
+  padding: .75rem 1rem; border-top: 1px solid var(--bs-border-color-translucent);
+  background-color: var(--bs-tertiary-bg); border-radius: 0 0 calc(.5rem - 1px) calc(.5rem - 1px);
+}
+.panel-default > .panel-heading { color: #333; background-color: #f5f5f5; border-color: #ddd; }
+.panel-primary { border-color: #337ab7; }
+.panel-primary > .panel-heading { color: #fff; background-color: #337ab7; border-color: #337ab7; }
+.panel-success { border-color: #d6e9c6; }
+.panel-success > .panel-heading { color: #3c763d; background-color: #dff0d8; border-color: #d6e9c6; }
+.panel-info { border-color: #bce8f1; }
+.panel-info > .panel-heading { color: #31708f; background-color: #d9edf7; border-color: #bce8f1; }
+.panel-warning { border-color: #faebcc; }
+.panel-warning > .panel-heading { color: #8a6d3b; background-color: #fcf8e3; border-color: #faebcc; }
+.panel-danger { border-color: #ebccd1; }
+.panel-danger > .panel-heading { color: #a94442; background-color: #f2dede; border-color: #ebccd1; }
+
+.thumbnail {
+  display: block; padding: 4px; margin-bottom: 20px; line-height: 1.42857143;
+  background-color: var(--bs-body-bg); border: 1px solid var(--bs-border-color);
+  border-radius: .375rem; transition: border .2s ease-in-out;
+}
+a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active { border-color: #337ab7; }
+.thumbnail > img, .thumbnail a > img { max-width: 100%; height: auto; margin-right: auto; margin-left: auto; }
+.thumbnail .caption { padding: 9px; color: var(--bs-secondary-color); }
+
+/* ------------------------------------------------------------------
+ * AdminLTE boxes -> Bootstrap cards
+ * ------------------------------------------------------------------ */
+.box {
+  position: relative; margin-bottom: 1.25rem; background-color: var(--bs-body-bg);
+  border: 1px solid rgba(var(--bs-body-color-rgb), .125);
+  border-radius: .5rem; box-shadow: 0 0 1px rgba(0, 0, 0, .125), 0 1px 3px rgba(0, 0, 0, .2);
+}
+.box-header {
+  position: relative; padding: .75rem 1.25rem; color: var(--bs-body-color);
+  border-bottom: 1px solid rgba(var(--bs-body-color-rgb), .125);
+  border-top-left-radius: .5rem; border-top-right-radius: .5rem;
+}
+.box-header::after { display: block; clear: both; content: ""; }
+.box-header .box-title, .box-header > h3 {
+  display: inline-block; margin: 0; font-size: 1.1rem; line-height: 1.4;
+}
+.box-header > .box-tools { position: absolute; right: 1rem; top: .65rem; }
+.box-header > .box-tools.pull-right { position: static; }
+.box-body { padding: 1.25rem; border-radius: .5rem; }
+.box-body::after { display: block; clear: both; content: ""; }
+.box-header + .box-body { border-top-left-radius: 0; border-top-right-radius: 0; }
+.box-footer {
+  padding: .75rem 1.25rem; border-top: 1px solid rgba(var(--bs-body-color-rgb), .125);
+  background-color: var(--bs-tertiary-bg);
+  border-radius: 0 0 .5rem .5rem;
+}
+.box-title { font-size: 1.1rem; }
+.box-tools > .btn { padding: .2rem .4rem; font-size: .8rem; }
+.box.box-solid { border-top: 0; }
+.box.box-primary { border-top: 3px solid #3c8dbc; }
+.box.box-info { border-top: 3px solid #00c0ef; }
+.box.box-success { border-top: 3px solid #00a65a; }
+.box.box-warning { border-top: 3px solid #f39c12; }
+.box.box-danger { border-top: 3px solid #dd4b39; }
+.box-header.with-border { border-bottom: 1px solid rgba(var(--bs-body-color-rgb), .125); }
+
+/* AdminLTE 3 small-box (AdminLTE 4 keeps the component, not the v3 icon) */
+.small-box { color: #fff; }
+.small-box > .inner { position: relative; z-index: 5; padding: 10px; }
+.small-box > .inner h3,
+.small-box > .inner .h3 { margin: 0 0 10px; font-size: 2.2rem; font-weight: 700; color: #fff; white-space: nowrap; }
+.small-box > .inner p { margin: 0; color: #fff; }
+.small-box > .icon {
+  position: absolute; top: 0; right: 15px; z-index: 0;
+  font-size: 90px; line-height: 90px; color: rgba(0, 0, 0, .15);
+  transition: font-size .3s linear;
+}
+.small-box > .icon > .fa, .small-box > .icon > .fas, .small-box > .icon > .far { font-size: inherit; }
+.small-box:hover > .icon { font-size: 95px; }
+.small-box > .small-box-footer {
+  position: relative; z-index: 10; display: block; padding: 3px 0;
+  text-align: center; color: #fff; background-color: rgba(0, 0, 0, .1);
+  text-decoration: none;
+}
+.small-box > .small-box-footer:hover { color: #fff; background-color: rgba(0, 0, 0, .15); }
+.small-box > .inner a { color: #fff; }
+
+/* info-box icon colours carried by legacy bg-* classes */
+.info-box .info-box-icon { color: #fff; }
+
+/* Callouts (AdminLTE 3 palette) */
+.callout-info { --lte-callout-color: #31708f; --lte-callout-bg: #d9edf7; --lte-callout-border: #bce8f1; }
+.callout-success { --lte-callout-color: #3c763d; --lte-callout-bg: #dff0d8; --lte-callout-border: #d6e9c6; }
+.callout-warning { --lte-callout-color: #8a6d3b; --lte-callout-bg: #fcf8e3; --lte-callout-border: #faebcc; }
+.callout-danger { --lte-callout-color: #a94442; --lte-callout-bg: #f2dede; --lte-callout-border: #ebccd1; }
+
+/* ------------------------------------------------------------------
+ * Nav tabs (AdminLTE 3 nav-tabs-custom)
+ * ------------------------------------------------------------------ */
+.nav-stacked { flex-direction: column !important; }
+.nav-stacked > li { width: 100%; }
+.nav-stacked > li > a { display: block; padding: .5rem 1rem; }
+
+.nav-tabs-custom {
+  margin-bottom: 1.25rem; background-color: var(--bs-body-bg);
+  border: 1px solid rgba(var(--bs-body-color-rgb), .125);
+  border-radius: .5rem; box-shadow: 0 0 1px rgba(0, 0, 0, .125), 0 1px 3px rgba(0, 0, 0, .2);
+}
+.nav-tabs-custom > .nav-tabs {
+  display: flex; flex-wrap: wrap; margin: 0; padding: 0 .5rem;
+  list-style: none; border-bottom: 1px solid var(--bs-border-color);
+}
+.nav-tabs-custom > .nav-tabs > li { margin-bottom: -1px; }
+.nav-tabs-custom > .nav-tabs > li > a {
+  display: block; padding: .7rem 1rem; color: #555; text-decoration: none;
+  border: 0; border-bottom: 2px solid transparent;
+}
+.nav-tabs-custom > .nav-tabs > li > a:hover { color: #000; background: transparent; }
+.nav-tabs-custom > .nav-tabs > li.active > a,
+.nav-tabs-custom > .nav-tabs > li > a.active { color: #3c8dbc; border-bottom-color: #3c8dbc; }
+.nav-tabs-custom > .tab-content { padding: 1rem; }
+.nav-tabs-custom > .tab-content > .tab-pane { display: none; }
+.nav-tabs-custom > .tab-content > .tab-pane.active { display: block; }
+.nav-tabs-custom > .tab-content > .tab-pane.fade { opacity: 0; transition: opacity .15s linear; }
+.nav-tabs-custom > .tab-content > .tab-pane.fade.active { opacity: 1; }
+
+/* ------------------------------------------------------------------
+ * Forms (Bootstrap 3 semantics)
+ * ------------------------------------------------------------------ */
+.form-group { margin-bottom: 1rem; }
+.form-horizontal .control-label { padding-top: .45rem; margin-bottom: 0; text-align: right; }
+.form-horizontal .form-group { margin-right: -.75rem; margin-left: -.75rem; }
+.form-control-static { min-height: 34px; padding-top: .4rem; padding-bottom: .4rem; margin-bottom: 0; }
+.form-control-static.input-lg { padding-right: 0; padding-left: 0; }
+.control-label { font-weight: 600; }
+.control-label.required::after { content: " *"; color: #dd4b39; }
+.help-block { display: block; margin-top: .25rem; margin-bottom: .5rem; color: var(--bs-secondary-color); }
+.input-group-addon {
+  display: flex; align-items: center; padding: .375rem .75rem; font-size: 1rem;
+  font-weight: 400; line-height: 1.5; color: var(--bs-body-color); text-align: center;
+  white-space: nowrap; background-color: var(--bs-tertiary-bg);
+  border: 1px solid var(--bs-border-color); border-radius: .375rem;
+}
+.input-group > .input-group-addon:first-child { border-right: 0; }
+.input-group > .input-group-addon:last-child { border-left: 0; }
+.input-group > .form-control:not(:first-child) { border-top-left-radius: 0; border-bottom-left-radius: 0; }
+.has-feedback { position: relative; }
+.has-feedback .form-control { padding-right: 42.5px; }
+.has-feedback .form-control-feedback {
+  position: absolute; top: 0; right: 0; z-index: 2; display: block;
+  width: 34px; height: 34px; line-height: 34px; text-align: center;
+  pointer-events: none; color: var(--bs-secondary-color);
+}
+.has-error .form-control, .has-error .input-group-addon { border-color: #dd4b39; }
+.has-error .help-block, .has-error .control-label, .has-error .form-control-feedback { color: #dd4b39; }
+.has-success .form-control { border-color: #00a65a; }
+.has-warning .form-control { border-color: #f39c12; }
+.checkbox, .radio { position: relative; display: block; margin-top: .5rem; margin-bottom: .5rem; }
+.checkbox label, .radio label { padding-left: 20px; margin-bottom: 0; font-weight: 400; cursor: pointer; }
+.checkbox input[type="checkbox"], .radio input[type="radio"] { position: absolute; margin-top: .2rem; margin-left: -20px; }
+.input-lg { padding: .5rem 1rem; font-size: 1.125rem; border-radius: .5rem; }
+.input-sm { padding: .2rem .5rem; font-size: .875rem; border-radius: .25rem; }
+
+/* ------------------------------------------------------------------
+ * Tables
+ * ------------------------------------------------------------------ */
+.table-condensed > thead > tr > th,
+.table-condensed > tbody > tr > th,
+.table-condensed > tbody > tr > td,
+.table-condensed > tfoot > tr > th,
+.table-condensed > tfoot > tr > td { padding: .25rem; }
+.table-stripped > tbody > tr:nth-of-type(odd) > * { background-color: rgba(0, 0, 0, .05); }
+.table > thead > tr > th { vertical-align: bottom; }
+.table-bordered > :not(caption) > * > * { border-width: 1px; }
+
+/* ------------------------------------------------------------------
+ * Dropdown lists using Bootstrap 3 markup (ul > li > a)
+ * ------------------------------------------------------------------ */
+.dropdown-menu > li > a {
+  display: block; padding: .375rem 1rem; clear: both; font-weight: 400;
+  color: var(--bs-body-color); text-decoration: none; white-space: nowrap;
+}
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+  background-color: var(--bs-tertiary-bg); color: var(--bs-body-color);
+}
+.dropdown-menu > li.active > a { color: #fff; background-color: #337ab7; }
+.dropdown-menu > li.disabled > a { color: var(--bs-secondary-color); }
+.navbar-nav > li > .dropdown-menu { margin-top: 0; }
+
+/* ------------------------------------------------------------------
+ * Alerts
+ * ------------------------------------------------------------------ */
+.alert-dismissable, .alert-dismissible { padding-right: 3.5rem; }
+.alert-dismissable .close, .alert-dismissible .close,
+.alert-dismissible .btn-close { position: absolute; top: .75rem; right: 1rem; }
+.alert-dismissible .btn-close { padding: .25rem; }
+.alert h4, .alert .alert-heading { margin-top: 0; margin-bottom: .25rem; font-size: 1.1rem; }
+
+/* ------------------------------------------------------------------
+ * Misc AdminLTE 2 helpers
+ * ------------------------------------------------------------------ */
+.content-header > h1 { margin: 0; font-size: 1.8rem; }
+.text-black { color: #000 !important; }
+.text-white { color: #fff !important; }
+.bg-white { background-color: #fff !important; }
+.no-padding { padding: 0 !important; }
+.no-margin { margin: 0 !important; }
+.margin-bottom { margin-bottom: 1rem; }
+.pad { padding: 1rem; }
+.description-block { display: block; margin: 10px 0; text-align: center; }

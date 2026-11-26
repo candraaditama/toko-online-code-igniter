@@ -2,7 +2,7 @@
 echo asset_select2();
 if(akses()!="member")
 {
-	redirect(base_url());
+	legacy_redirect(base_url());
 }
 $berat=0;
 $pembelian=$this->cart->contents();
@@ -212,6 +212,6 @@ function hitung()
 </script>
 <?php
 }else{
-	redirect(base_url().'keranjang');
+	legacy_redirect(base_url().'keranjang');
 }
 ?>

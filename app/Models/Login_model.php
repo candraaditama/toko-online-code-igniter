@@ -1,4 +1,9 @@
 <?php
+
+namespace App\Models;
+
+use CI_Model;
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Login_model extends CI_Model
 {
@@ -18,7 +23,7 @@ class Login_model extends CI_Model
 	function user_akses_data()
 	{
 		$query = "SHOW COLUMNS FROM ".$this->tbl_login." LIKE 'akses'";
-        $row = $this->db->query("SHOW COLUMNS FROM ".$this->tbl_login." LIKE 'akses'")->row()->Type;
+        $row = $this->db->query("SHOW COLUMNS FROM ".$this->tbl_login." LIKE 'akses'")->getRow()->Type;
         $regex = "/'(.*?)'/";
         preg_match_all( $regex , $row, $enum_array );
         $enum_fields = $enum_array[1];
@@ -114,7 +119,7 @@ class Login_model extends CI_Model
 		}
 	}
 	
-	function user_edit($userid,$nama,$username,$password='',$akses)
+	function user_edit($userid,$nama,$username,$password,$akses)
 	{
 		$s=array(
 		'user_id'=>$userid,
@@ -176,7 +181,7 @@ class Login_model extends CI_Model
 	function user_logout()
 	{
 		$this->session->unset_userdata($this->tbl_sesi);
-		redirect(base_url());
+		legacy_redirect(base_url());
 	}
 	
 	

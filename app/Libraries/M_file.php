@@ -1,4 +1,6 @@
 <?php
+
+namespace App\Libraries;
 /**
  * Minang Igniter
  *
@@ -198,7 +200,7 @@ class M_file{
 	
 	private function _get_mime_allow_upload()
 	{
-		$dataMime=include APPPATH.'config/mimes.php';
+		$dataMime=include APPPATH.'Config/Legacy/mimes.php';
 		$arr=array();
 		foreach($dataMime as $ext=>$desc)
 		{
@@ -293,7 +295,7 @@ class M_file{
 	}
 		
 	
-	function custom_upload_image_single($thumbs=TRUE,$overwrite=TRUE,$imgname='',$pathupload,$allowtype,$maxsize,$maxheight,$maxwidth,$inputfilename,$debug=FALSE,$noreturn=FALSE)
+	function custom_upload_image_single($thumbs,$overwrite,$imgname,$pathupload,$allowtype,$maxsize,$maxheight,$maxwidth,$inputfilename,$debug=FALSE,$noreturn=FALSE)
 	{			
 		$config['upload_path'] = $pathupload;
 		$config['allowed_types'] = $allowtype;
@@ -342,7 +344,7 @@ class M_file{
 	
 	
 	
-	function custom_upload_image_multiple($thumbs=TRUE,$overwrite=TRUE,$pathupload,$allowtype,$maxsize,$maxheight,$maxwidth,$field,$count,$debug=FALSE)
+	function custom_upload_image_multiple($thumbs,$overwrite,$pathupload,$allowtype,$maxsize,$maxheight,$maxwidth,$field,$count,$debug=FALSE)
 	{
 		$config['upload_path'] = $pathupload;
 		$config['allowed_types'] = $allowtype;

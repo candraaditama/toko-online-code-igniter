@@ -1,4 +1,9 @@
 <?php
+
+namespace App\Controllers\Supplier\Produk;
+
+use CI_Controller;
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Selesai extends CI_Controller {

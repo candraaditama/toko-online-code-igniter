@@ -1,7 +1,7 @@
 <?php
 if(empty($data))
 {
-	redirect(base_url(akses().'/cms/halaman'));
+	legacy_redirect(base_url(akses().'/cms/halaman'));
 }
 foreach($data as $row){	
 }

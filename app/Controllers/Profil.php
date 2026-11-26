@@ -1,4 +1,9 @@
 <?php
+
+namespace App\Controllers;
+
+use CI_Controller;
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Profil extends CI_Controller {
@@ -87,14 +92,14 @@ class Profil extends CI_Controller {
 			if($this->m_db->edit_row('userlogin',$d,$s)==TRUE)
 			{
 				set_header_message('success','Profil','Berhasil mengubah profil');
-				redirect(base_url("profil"),'refresh',301);
+				legacy_redirect(base_url("profil"),'refresh',301);
 			}else{
 				set_header_message('danger','Profil','Gagal mengubah profil');
-				redirect(base_url("profil"),'refresh',301);
+				legacy_redirect(base_url("profil"),'refresh',301);
 			}
 			
 		}else{
-			redirect(base_url("profil"),'refresh',301);
+			legacy_redirect(base_url("profil"),'refresh',301);
 		}
 	}
 }

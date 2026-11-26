@@ -1,4 +1,9 @@
 <?php
+
+namespace App\Controllers\Op\Transaksi;
+
+use CI_Controller;
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Permintaan extends CI_Controller {
@@ -56,14 +61,14 @@ class Permintaan extends CI_Controller {
 					}
 					$this->m_db->delete_row('pembelian_temp',$s);
 					set_header_message('success','Tambah Permintaan produk','berhasil menambahkan data transaksi');
-					redirect(base_url(akses().'/transaksi/permintaan'));
+					legacy_redirect(base_url(akses().'/transaksi/permintaan'));
 				}else{
 					set_header_message('danger','Tambah Permintaan produk','Gagal menambahkan data transaksi');
-					redirect(base_url(akses().'/transaksi/permintaan/add'));
+					legacy_redirect(base_url(akses().'/transaksi/permintaan/add'));
 				}
 			}else{
 				set_header_message('danger','Tambah Permintaan produk','Gagal menambahkan data transaksi');
-				redirect(base_url(akses().'/transaksi/permintaan/add'));
+				legacy_redirect(base_url(akses().'/transaksi/permintaan/add'));
 			}
 		}else{
 			$meta['judul']="Permintaan Produk";

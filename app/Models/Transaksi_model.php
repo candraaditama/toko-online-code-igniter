@@ -1,4 +1,9 @@
 <?php
+
+namespace App\Models;
+
+use CI_Model;
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Transaksi_model extends CI_Model
 {
@@ -92,7 +97,7 @@ class Transaksi_model extends CI_Model
 		}	
 	}
 	
-	function penjualan_add($pelangganID,$total,$kurir,$pelayanan,$ongkir,$produk=array(),$berat,$diskon)
+	function penjualan_add($pelangganID,$total,$kurir,$pelayanan,$ongkir,$produk,$berat,$diskon)
 	{
 		$dx=array();
 		if(!empty($produk))

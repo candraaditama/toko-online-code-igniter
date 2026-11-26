@@ -81,7 +81,8 @@
     </a>
 
     
-    <script src="<?=base_url();?>assets/html/js/bootstrap.js"></script>
+    <script src="<?=base_url();?>assets/html/js/bootstrap.bundle.min.js"></script>
+    <script src="<?=base_url();?>assets/tema/lte/dist/js/legacy.js"></script>
     <script src="<?=base_url();?>assets/html/js/jquery.bxslider.min.js"></script>
     <script src="<?=base_url();?>assets/html/js/jquery.blImageCenter.js"></script>
     <script src="<?=base_url();?>assets/html/js/mimity.js"></script>

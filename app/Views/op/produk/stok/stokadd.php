@@ -2,7 +2,7 @@
 echo asset_select2();
 if(empty($data))
 {
-	redirect(base_url(akses().'/produk/produk'));
+	legacy_redirect(base_url(akses().'/produk/produk'));
 }
 foreach($data as $row){	
 }

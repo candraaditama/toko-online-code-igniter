@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Libraries\RajaOngkir;
+
 /**
  * RajaOngkir REST Client
  * 

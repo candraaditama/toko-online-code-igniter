@@ -1,4 +1,9 @@
 <?php
+
+namespace App\Controllers\Bos\Produk;
+
+use CI_Controller;
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Warna extends CI_Controller {
@@ -33,13 +38,13 @@ class Warna extends CI_Controller {
 			if($this->mod_produk->warna_add($nama)==TRUE)
 			{
 				set_header_message('success','Tambah Warna Produk','Berhasil menambahkan Warna Produk');
-				redirect(base_url(akses().'/produk/warna'),'refresh',301);
+				legacy_redirect(base_url(akses().'/produk/warna'),'refresh',301);
 			}else{
 				set_header_message('danger','Tambah Warna Produk','Gagal menambahkan Warna Produk');
-				redirect(base_url(akses().'/produk/warna'),'refresh',301);
+				legacy_redirect(base_url(akses().'/produk/warna'),'refresh',301);
 			}			
 		}else{
-			redirect(base_url(akses().'/produk/warna'),'refresh',301);
+			legacy_redirect(base_url(akses().'/produk/warna'),'refresh',301);
 		}
 	}
 	
@@ -55,10 +60,10 @@ class Warna extends CI_Controller {
 			if($this->mod_produk->warna_edit($warnaid,$nama)==TRUE)
 			{
 				set_header_message('success','Ubah Warna Produk','Berhasil mengubah Warna Produk');
-				redirect(base_url(akses().'/produk/warna'),'refresh',301);
+				legacy_redirect(base_url(akses().'/produk/warna'),'refresh',301);
 			}else{
 				set_header_message('danger','Ubah Warna Produk','Gagal mengubah Warna Produk');
-				redirect(base_url(akses().'/produk/warna'),'refresh',301);
+				legacy_redirect(base_url(akses().'/produk/warna'),'refresh',301);
 			}			
 		}else{
 			$id=$this->input->get('id',TRUE);
@@ -76,10 +81,10 @@ class Warna extends CI_Controller {
 		if($this->mod_produk->warna_delete($id)==TRUE)
 		{
 			set_header_message('success','Hapus Warna Produk','Berhasil menghapus Warna Produk');
-			redirect(base_url(akses().'/produk/warna'),'refresh',301);
+			legacy_redirect(base_url(akses().'/produk/warna'),'refresh',301);
 		}else{
 			set_header_message('danger','Hapus Warna Produk','Gagal menghapus Warna Produk');
-			redirect(base_url(akses().'/produk/warna'),'refresh',301);
+			legacy_redirect(base_url(akses().'/produk/warna'),'refresh',301);
 		}
 	}
 }

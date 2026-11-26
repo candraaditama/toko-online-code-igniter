@@ -2,7 +2,7 @@
 echo validation_errors();
 if(empty($data))
 {
-	redirect(base_url(akses().'/produk/promo'));
+	legacy_redirect(base_url(akses().'/produk/promo'));
 }
 foreach($data as $row){	
 }

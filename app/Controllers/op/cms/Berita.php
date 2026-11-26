@@ -1,4 +1,9 @@
 <?php
+
+namespace App\Controllers\Op\Cms;
+
+use CI_Controller;
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Berita extends CI_Controller {
@@ -39,10 +44,10 @@ class Berita extends CI_Controller {
 			if($this->cms_model->berita_add($kategoriid,$judul,$isi,$status)==TRUE)
 			{
 				set_header_message('success','Tambah Berita','Berhasil menambah Berita');
-				redirect(base_url(akses().'/cms/berita'));
+				legacy_redirect(base_url(akses().'/cms/berita'));
 			}else{
 				set_header_message('danger','Tambah Berita','Gagal menambah Berita');
-				redirect(base_url(akses().'/cms/berita'));
+				legacy_redirect(base_url(akses().'/cms/berita'));
 			}
 		}else{
 			$meta['judul']="Tambah Berita";
@@ -70,10 +75,10 @@ class Berita extends CI_Controller {
 			if($this->cms_model->berita_edit($beritaid,$kategoriid,$judul,$isi,$status)==TRUE)
 			{
 				set_header_message('success','Ubah Berita','Berhasil mengubah Berita');
-				redirect(base_url(akses().'/cms/berita'));
+				legacy_redirect(base_url(akses().'/cms/berita'));
 			}else{
 				set_header_message('danger','Ubah Berita','Gagal mengubah Berita');
-				redirect(base_url(akses().'/cms/berita'));
+				legacy_redirect(base_url(akses().'/cms/berita'));
 			}
 		}else{
 			$id=$this->input->get('id');
@@ -92,10 +97,10 @@ class Berita extends CI_Controller {
 		if($this->cms_model->berita_delete($id)==TRUE)
 		{
 			set_header_message('success','Hapus Berita','Berhasil menghapus Berita');
-			redirect(base_url(akses().'/cms/berita'));
+			legacy_redirect(base_url(akses().'/cms/berita'));
 		}else{
 			set_header_message('danger','Hapus Berita','Gagal menghapus Berita');
-			redirect(base_url(akses().'/cms/berita'));
+			legacy_redirect(base_url(akses().'/cms/berita'));
 		}
 	}
 }

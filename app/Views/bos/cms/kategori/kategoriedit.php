@@ -1,7 +1,7 @@
 <?php
 if(empty($data))
 {
-	redirect(base_url(akses().'/cms/kategori'));
+	legacy_redirect(base_url(akses().'/cms/kategori'));
 }
 foreach($data as $row){
 }

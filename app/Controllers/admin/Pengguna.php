@@ -1,4 +1,9 @@
 <?php
+
+namespace App\Controllers\Admin;
+
+use CI_Controller;
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Pengguna extends CI_Controller {
@@ -34,10 +39,10 @@ class Pengguna extends CI_Controller {
 			if($this->login_model->user_daftar($nama,$username,$password,$akses)==TRUE)
 			{
 				set_header_message('success','Tambah Pengguna','Berhasil menambahkan pengguna');
-				redirect(base_url(akses().'/pengguna'));
+				legacy_redirect(base_url(akses().'/pengguna'));
 			}else{
 				set_header_message('danger','Tambah Pengguna','Gagal menambahkan pengguna');
-				redirect(base_url(akses().'/pengguna/add'));
+				legacy_redirect(base_url(akses().'/pengguna/add'));
 			}
 		}else{
 			$meta['judul']="Tambah Pengguna";
@@ -64,10 +69,10 @@ class Pengguna extends CI_Controller {
 			if($this->login_model->user_edit($userid,$nama,$username,$password,$akses)==TRUE)
 			{
 				set_header_message('success','Ubah Pengguna','Berhasil mengubah pengguna');
-				redirect(base_url(akses().'/pengguna'));
+				legacy_redirect(base_url(akses().'/pengguna'));
 			}else{
 				set_header_message('danger','Ubah Pengguna','Gagal mengubah pengguna');
-				redirect(base_url(akses().'/pengguna'));
+				legacy_redirect(base_url(akses().'/pengguna'));
 			}
 		}else{
 			$id=$this->input->get('id');
@@ -86,10 +91,10 @@ class Pengguna extends CI_Controller {
 		if($this->login_model->user_delete($id)==TRUE)
 		{
 			set_header_message('success','Hapus Pengguna','Berhasil menghapus pengguna');
-			redirect(base_url(akses().'/pengguna'));
+			legacy_redirect(base_url(akses().'/pengguna'));
 		}else{
 			set_header_message('danger','Hapus Pengguna','Gagal menghapus pengguna');
-			redirect(base_url(akses().'/pengguna'));
+			legacy_redirect(base_url(akses().'/pengguna'));
 		}
 	}
 }

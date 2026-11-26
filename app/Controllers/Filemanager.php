@@ -1,4 +1,9 @@
 <?php
+
+namespace App\Controllers;
+
+use CI_Controller;
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Filemanager extends CI_Controller
 {
@@ -61,7 +66,7 @@ class Filemanager extends CI_Controller
 	
 	function _get_mime()
 	{
-		$d=include APPPATH.'config/mimes.php';
+		$d=include APPPATH.'Config/Legacy/mimes.php';
 		extract($d,EXTR_OVERWRITE);
 		$o=array();
 		foreach($d as $k=>$v)

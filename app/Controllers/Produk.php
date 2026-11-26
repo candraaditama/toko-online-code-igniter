@@ -1,4 +1,9 @@
 <?php
+
+namespace App\Controllers;
+
+use CI_Controller;
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Produk extends CI_Controller
@@ -24,7 +29,7 @@ class Produk extends CI_Controller
 	function detailproduk()
 	{
 		$id=$this->uri->segment(2);
-		redirect(base_url().'produk/add/'.$id);
+		legacy_redirect(base_url().'produk/add/'.$id);
 	}
 	
 	
@@ -43,7 +48,7 @@ class Produk extends CI_Controller
 		$this->load->view('html/page/kategoriview',$d);
 		$this->load->view('html/footer');
 		}else{
-			redirect(base_url());
+			legacy_redirect(base_url());
 		}
 	}
 	
@@ -97,7 +102,7 @@ class Produk extends CI_Controller
 				        'keterangan'=>$keterangan,
 				);
 				$this->cart->insert($data);
-				redirect(base_url().'keranjang');
+				legacy_redirect(base_url().'keranjang');
 			}else{
 				$nama=$this->m_db->get_row('produk',$s,'nama_produk');
 				$meta['judul']="$nama | ".baca_konfig('nama-aplikasi');
@@ -110,7 +115,7 @@ class Produk extends CI_Controller
 				$this->load->view('html/footer');
 			}			
 		}else{
-			redirect(base_url());
+			legacy_redirect(base_url());
 		}
 	}
 	
@@ -121,7 +126,7 @@ class Produk extends CI_Controller
 		{
 			$data=$_POST['info'];
 			$this->cart->update($data);
-			redirect(base_url().'keranjang');
+			legacy_redirect(base_url().'keranjang');
 			//var_dump($_POST);
 		}else{
 					
@@ -137,7 +142,7 @@ class Produk extends CI_Controller
 	function kosongkan()
 	{
 		$this->cart->destroy();
-		redirect(base_url().'keranjang');
+		legacy_redirect(base_url().'keranjang');
 	}
 	
 	function hapus()
@@ -146,9 +151,9 @@ class Produk extends CI_Controller
 		if(!empty($id))
 		{
 			$this->cart->remove($id);
-			redirect(base_url().'keranjang');
+			legacy_redirect(base_url().'keranjang');
 		}else{
-			redirect(base_url().'keranjang');
+			legacy_redirect(base_url().'keranjang');
 		}
 	}
 	
@@ -174,7 +179,7 @@ class Produk extends CI_Controller
 		if(akses()!="member")
 		{
 			$ref=$this->uri->ruri_string();
-			redirect(base_url().'member/login?ref='.$ref);
+			legacy_redirect(base_url().'member/login?ref='.$ref);
 		}else{
 			$this->form_validation->set_rules('pelangganid','ID Pelanggan','required');
 			$this->form_validation->set_rules('total','Total Belanja','required');
@@ -197,9 +202,9 @@ class Produk extends CI_Controller
 				{					
 					$penjualanID=$ext['penjualanid'];
 					$this->cart->destroy();
-					redirect(base_url().'produk/histori/bayar/'.$penjualanID);
+					legacy_redirect(base_url().'produk/histori/bayar/'.$penjualanID);
 				}else{
-					redirect(base_url().'checkout');
+					legacy_redirect(base_url().'checkout');
 				}
 			}else{
 				$meta['judul']="Checkout Belanja | ".baca_konfig('nama-aplikasi');

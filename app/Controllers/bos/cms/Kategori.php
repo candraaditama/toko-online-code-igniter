@@ -1,4 +1,9 @@
 <?php
+
+namespace App\Controllers\Bos\Cms;
+
+use CI_Controller;
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Kategori extends CI_Controller {
@@ -33,13 +38,13 @@ class Kategori extends CI_Controller {
 			if($this->cms_model->kategori_add($nama)==TRUE)
 			{
 				set_header_message('success','Tambah Kategori','Berhasil menambah Kategori');
-				redirect(base_url(akses().'/cms/kategori'));
+				legacy_redirect(base_url(akses().'/cms/kategori'));
 			}else{
 				set_header_message('danger','Tambah Kategori','Gagal menambah Kategori');
-				redirect(base_url(akses().'/cms/kategori'));
+				legacy_redirect(base_url(akses().'/cms/kategori'));
 			}
 		}else{
-			redirect(base_url(akses().'/cms/kategori'));
+			legacy_redirect(base_url(akses().'/cms/kategori'));
 		}
 	}
 	
@@ -54,10 +59,10 @@ class Kategori extends CI_Controller {
 			if($this->cms_model->kategori_edit($kategoriid,$nama)==TRUE)
 			{
 				set_header_message('success','Ubah Kategori','Berhasil mengubah Kategori');
-				redirect(base_url(akses().'/cms/kategori'));
+				legacy_redirect(base_url(akses().'/cms/kategori'));
 			}else{
 				set_header_message('danger','Ubah Kategori','Gagal mengubah Kategori');
-				redirect(base_url(akses().'/cms/kategori'));
+				legacy_redirect(base_url(akses().'/cms/kategori'));
 			}
 		}else{
 			$id=$this->input->get('id');
@@ -75,10 +80,10 @@ class Kategori extends CI_Controller {
 		if($this->cms_model->kategori_delete($id)==TRUE)
 		{
 			set_header_message('success','Hapus Kategori','Berhasil menghapus Kategori');
-			redirect(base_url(akses().'/cms/kategori'));
+			legacy_redirect(base_url(akses().'/cms/kategori'));
 		}else{
 			set_header_message('danger','Hapus Kategori','Gagal menghapus Kategori');
-			redirect(base_url(akses().'/cms/kategori'));
+			legacy_redirect(base_url(akses().'/cms/kategori'));
 		}
 	}
 }

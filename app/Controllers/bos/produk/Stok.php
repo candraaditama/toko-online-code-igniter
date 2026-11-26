@@ -1,4 +1,9 @@
 <?php
+
+namespace App\Controllers\Bos\Produk;
+
+use CI_Controller;
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Stok extends CI_Controller {
@@ -41,10 +46,10 @@ class Stok extends CI_Controller {
 			{
 				
 				set_header_message('success',"Tambah Stok Produk",'Berhasil menambah stok '.$nama);
-				redirect(base_url(akses().'/produk/produk'));
+				legacy_redirect(base_url(akses().'/produk/produk'));
 			}else{
 				set_header_message('danger',"Tambah Stok Produk",'Gagal menambah stok '.$nama);
-				redirect(base_url(akses().'/produk/produk'));
+				legacy_redirect(base_url(akses().'/produk/produk'));
 			}
 		}else{
 			
@@ -66,7 +71,7 @@ class Stok extends CI_Controller {
 			$this->load->view(akses().'/produk/stok/stokadd',$d);
 			$this->load->view('tema/footer');
 		}else{
-			redirect(base_url(akses().'/produk/produk'));
+			legacy_redirect(base_url(akses().'/produk/produk'));
 		}	
 		
 		}

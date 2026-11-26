@@ -1,4 +1,9 @@
 <?php
+
+namespace App\Controllers\Bos\Produk;
+
+use CI_Controller;
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Merek extends CI_Controller {
@@ -33,13 +38,13 @@ class Merek extends CI_Controller {
 			if($this->mod_produk->merek_add($nama)==TRUE)
 			{
 				set_header_message('success','Tambah Merek Produk','Berhasil menambahkan Merek Produk');
-				redirect(base_url(akses().'/produk/merek'),'refresh',301);
+				legacy_redirect(base_url(akses().'/produk/merek'),'refresh',301);
 			}else{
 				set_header_message('danger','Tambah Merek Produk','Gagal menambahkan Merek Produk');
-				redirect(base_url(akses().'/produk/merek'),'refresh',301);
+				legacy_redirect(base_url(akses().'/produk/merek'),'refresh',301);
 			}			
 		}else{
-			redirect(base_url(akses().'/produk/merek'),'refresh',301);
+			legacy_redirect(base_url(akses().'/produk/merek'),'refresh',301);
 		}
 	}
 	
@@ -55,10 +60,10 @@ class Merek extends CI_Controller {
 			if($this->mod_produk->merek_edit($merekid,$nama)==TRUE)
 			{
 				set_header_message('success','Ubah Merek Produk','Berhasil mengubah Merek Produk');
-				redirect(base_url(akses().'/produk/merek'),'refresh',301);
+				legacy_redirect(base_url(akses().'/produk/merek'),'refresh',301);
 			}else{
 				set_header_message('danger','Ubah Merek Produk','Gagal mengubah Merek Produk');
-				redirect(base_url(akses().'/produk/merek'),'refresh',301);
+				legacy_redirect(base_url(akses().'/produk/merek'),'refresh',301);
 			}			
 		}else{
 			$id=$this->input->get('id',TRUE);
@@ -76,10 +81,10 @@ class Merek extends CI_Controller {
 		if($this->mod_produk->merek_delete($id)==TRUE)
 		{
 			set_header_message('success','Hapus Merek Produk','Berhasil menghapus Merek Produk');
-			redirect(base_url(akses().'/produk/merek'),'refresh',301);
+			legacy_redirect(base_url(akses().'/produk/merek'),'refresh',301);
 		}else{
 			set_header_message('danger','Hapus Merek Produk','Gagal menghapus Merek Produk');
-			redirect(base_url(akses().'/produk/merek'),'refresh',301);
+			legacy_redirect(base_url(akses().'/produk/merek'),'refresh',301);
 		}
 	}
 }

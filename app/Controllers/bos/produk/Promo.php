@@ -1,4 +1,9 @@
 <?php
+
+namespace App\Controllers\Bos\Produk;
+
+use CI_Controller;
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Promo extends CI_Controller {
@@ -47,10 +52,10 @@ class Promo extends CI_Controller {
 			if($this->mod_produk->promo_add($judul,$deskripsi,$nilai,$mulai,$selesai,$kode,$jumlah,$minimal)==TRUE)
 			{
 				set_header_message('success','Tambah Kupon Promo','Berhasil menambahkan kupon promo');
-				redirect(base_url(akses().'/produk/promo'),'refresh',301);
+				legacy_redirect(base_url(akses().'/produk/promo'),'refresh',301);
 			}else{
 				set_header_message('danger','Tambah Kupon Promo','Gagal menambahkan kupon promo');
-				redirect(base_url(akses().'/produk/promo/add'),'refresh',301);
+				legacy_redirect(base_url(akses().'/produk/promo/add'),'refresh',301);
 			}
 		}else{
 			$meta['judul']="Tambah Kupon Promo";
@@ -83,10 +88,10 @@ class Promo extends CI_Controller {
 			if($this->mod_produk->promo_edit($promoid,$judul,$deskripsi,$nilai,$mulai,$selesai,$jumlah,$minimal)==TRUE)
 			{
 				set_header_message('success','Ubah Kupon Promo','Berhasil mengubah kupon promo');
-				redirect(base_url(akses().'/produk/promo'),'refresh',301);
+				legacy_redirect(base_url(akses().'/produk/promo'),'refresh',301);
 			}else{
 				set_header_message('danger','Ubah Kupon Promo','Gagal mengubah kupon promo');
-				redirect(base_url(akses().'/produk/promo'),'refresh',301);
+				legacy_redirect(base_url(akses().'/produk/promo'),'refresh',301);
 			}
 		}else{
 			$tgl=date("Y-m-d");
@@ -105,10 +110,10 @@ class Promo extends CI_Controller {
 		if($this->mod_produk->promo_delete($id)==TRUE)
 		{
 			set_header_message('success','Hapus Kupon Promo','Berhasil menghapus kupon promo');
-			redirect(base_url(akses().'/produk/promo'),'refresh',301);
+			legacy_redirect(base_url(akses().'/produk/promo'),'refresh',301);
 		}else{
 			set_header_message('danger','Hapus Kupon Promo','Gagal menghapus kupon promo');
-			redirect(base_url(akses().'/produk/promo'),'refresh',301);
+			legacy_redirect(base_url(akses().'/produk/promo'),'refresh',301);
 		}
 	}
 }

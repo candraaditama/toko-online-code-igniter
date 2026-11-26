@@ -1,4 +1,9 @@
 <?php
+
+namespace App\Controllers\Op\Produk;
+
+use CI_Controller;
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Kategori extends CI_Controller {
@@ -33,13 +38,13 @@ class Kategori extends CI_Controller {
 			if($this->mod_produk->kategori_add($nama)==TRUE)
 			{
 				set_header_message('success','Tambah Kategori Produk','Berhasil menambahkan Kategori Produk');
-				redirect(base_url(akses().'/produk/kategori'),'refresh',301);
+				legacy_redirect(base_url(akses().'/produk/kategori'),'refresh',301);
 			}else{
 				set_header_message('danger','Tambah Kategori Produk','Gagal menambahkan Kategori Produk');
-				redirect(base_url(akses().'/produk/kategori'),'refresh',301);
+				legacy_redirect(base_url(akses().'/produk/kategori'),'refresh',301);
 			}			
 		}else{
-			redirect(base_url(akses().'/produk/kategori'),'refresh',301);
+			legacy_redirect(base_url(akses().'/produk/kategori'),'refresh',301);
 		}
 	}
 	
@@ -55,10 +60,10 @@ class Kategori extends CI_Controller {
 			if($this->mod_produk->kategori_edit($kategoriid,$nama)==TRUE)
 			{
 				set_header_message('success','Ubah Kategori Produk','Berhasil mengubah Kategori Produk');
-				redirect(base_url(akses().'/produk/kategori'),'refresh',301);
+				legacy_redirect(base_url(akses().'/produk/kategori'),'refresh',301);
 			}else{
 				set_header_message('danger','Ubah Kategori Produk','Gagal mengubah Kategori Produk');
-				redirect(base_url(akses().'/produk/kategori'),'refresh',301);
+				legacy_redirect(base_url(akses().'/produk/kategori'),'refresh',301);
 			}			
 		}else{
 			$id=$this->input->get('id',TRUE);
@@ -76,10 +81,10 @@ class Kategori extends CI_Controller {
 		if($this->mod_produk->kategori_delete($id)==TRUE)
 		{
 			set_header_message('success','Hapus Kategori Produk','Berhasil menghapus Kategori Produk');
-			redirect(base_url(akses().'/produk/kategori'),'refresh',301);
+			legacy_redirect(base_url(akses().'/produk/kategori'),'refresh',301);
 		}else{
 			set_header_message('danger','Hapus Kategori Produk','Gagal menghapus Kategori Produk');
-			redirect(base_url(akses().'/produk/kategori'),'refresh',301);
+			legacy_redirect(base_url(akses().'/produk/kategori'),'refresh',301);
 		}
 	}
 }

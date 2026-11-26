@@ -1,4 +1,9 @@
 <?php
+
+namespace App\Controllers\Op\Mitra;
+
+use CI_Controller;
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Supplier extends CI_Controller {
@@ -14,7 +19,7 @@ class Supplier extends CI_Controller {
 		$this->load->model('supplier_model','mod_supplier');
 		if(toko_user()!=toko_pusat())
 		{
-			redirect(base_url(akses().'/dashboard'));
+			legacy_redirect(base_url(akses().'/dashboard'));
 		}
 	}
 	
@@ -40,13 +45,13 @@ class Supplier extends CI_Controller {
 			if($this->mod_supplier->supplier_add($nama,$alamat,$telepon)==TRUE)
 			{
 				set_header_message('success','Tambah Supplier','Berhasil menambahkan Supplier');
-				redirect(base_url(akses().'/mitra/supplier'),'refresh',301);
+				legacy_redirect(base_url(akses().'/mitra/supplier'),'refresh',301);
 			}else{
 				set_header_message('danger','Tambah Supplier','Gagal menambahkan Supplier');
-				redirect(base_url(akses().'/mitra/supplier'),'refresh',301);
+				legacy_redirect(base_url(akses().'/mitra/supplier'),'refresh',301);
 			}			
 		}else{
-			redirect(base_url(akses().'/mitra/supplier'),'refresh',301);
+			legacy_redirect(base_url(akses().'/mitra/supplier'),'refresh',301);
 		}
 	}
 	
@@ -65,10 +70,10 @@ class Supplier extends CI_Controller {
 			if($this->mod_supplier->supplier_edit($supplierid,$nama,$alamat,$telepon)==TRUE)
 			{
 				set_header_message('success','Ubah Supplier','Berhasil mengubah Supplier');
-				redirect(base_url(akses().'/mitra/supplier'),'refresh',301);
+				legacy_redirect(base_url(akses().'/mitra/supplier'),'refresh',301);
 			}else{
 				set_header_message('danger','Ubah Supplier','Gagal mengubah Supplier');
-				redirect(base_url(akses().'/mitra/supplier'),'refresh',301);
+				legacy_redirect(base_url(akses().'/mitra/supplier'),'refresh',301);
 			}			
 		}else{
 			$id=$this->input->get('id',TRUE);
@@ -86,10 +91,10 @@ class Supplier extends CI_Controller {
 		if($this->mod_supplier->supplier_delete($id)==TRUE)
 		{
 			set_header_message('success','Hapus Supplier','Berhasil menghapus Supplier');
-			redirect(base_url(akses().'/mitra/supplier'),'refresh',301);
+			legacy_redirect(base_url(akses().'/mitra/supplier'),'refresh',301);
 		}else{
 			set_header_message('danger','Hapus Supplier','Gagal menghapus Supplier');
-			redirect(base_url(akses().'/mitra/supplier'),'refresh',301);
+			legacy_redirect(base_url(akses().'/mitra/supplier'),'refresh',301);
 		}
 	}
 	
@@ -134,11 +139,11 @@ class Supplier extends CI_Controller {
 						$this->m_db->edit_row('supplier',$dSupUser,$sSup);
 					}else{
 						set_header_message('danger','User Supplier','Gagal set user Supplier');
-						redirect(base_url(akses().'/mitra/supplier'),'refresh',301);
+						legacy_redirect(base_url(akses().'/mitra/supplier'),'refresh',301);
 					}
 				}else{
 					set_header_message('danger','User Supplier','Gagal set user Supplier');
-					redirect(base_url(akses().'/mitra/supplier'),'refresh',301);
+					legacy_redirect(base_url(akses().'/mitra/supplier'),'refresh',301);
 				}
 				
 			}else{
@@ -159,7 +164,7 @@ class Supplier extends CI_Controller {
 				$this->m_db->edit_row('userlogin',$dH,$sUser);
 			}	
 			set_header_message('success','User Supplier','Berhasil set user Supplier');
-			redirect(base_url(akses().'/mitra/supplier'),'refresh',301);
+			legacy_redirect(base_url(akses().'/mitra/supplier'),'refresh',301);
 		}else{
 			$id=$this->input->get('id',TRUE);
 			$meta['judul']="Akun Supplier";

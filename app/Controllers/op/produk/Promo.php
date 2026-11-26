@@ -1,4 +1,9 @@
 <?php
+
+namespace App\Controllers\Op\Produk;
+
+use CI_Controller;
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Promo extends CI_Controller {
@@ -42,10 +47,10 @@ class Promo extends CI_Controller {
 			if($this->mod_produk->promo_add($judul,$deskripsi,$nilai,$mulai,$selesai)==TRUE)
 			{
 				set_header_message('success','Tambah Kupon Promo','Berhasil menambahkan kupon promo');
-				redirect(base_url(akses().'/produk/promo'),'refresh',301);
+				legacy_redirect(base_url(akses().'/produk/promo'),'refresh',301);
 			}else{
 				set_header_message('danger','Tambah Kupon Promo','Gagal menambahkan kupon promo');
-				redirect(base_url(akses().'/produk/promo/add'),'refresh',301);
+				legacy_redirect(base_url(akses().'/produk/promo/add'),'refresh',301);
 			}
 		}else{
 			$meta['judul']="Tambah Kupon Promo";
@@ -74,10 +79,10 @@ class Promo extends CI_Controller {
 			if($this->mod_produk->promo_edit($promoid,$judul,$deskripsi,$nilai,$mulai,$selesai)==TRUE)
 			{
 				set_header_message('success','Ubah Kupon Promo','Berhasil mengubah kupon promo');
-				redirect(base_url(akses().'/produk/promo'),'refresh',301);
+				legacy_redirect(base_url(akses().'/produk/promo'),'refresh',301);
 			}else{
 				set_header_message('danger','Ubah Kupon Promo','Gagal mengubah kupon promo');
-				redirect(base_url(akses().'/produk/promo'),'refresh',301);
+				legacy_redirect(base_url(akses().'/produk/promo'),'refresh',301);
 			}
 		}else{
 			$tgl=date("Y-m-d");
@@ -96,10 +101,10 @@ class Promo extends CI_Controller {
 		if($this->mod_produk->promo_delete($id)==TRUE)
 		{
 			set_header_message('success','Hapus Kupon Promo','Berhasil menghapus kupon promo');
-			redirect(base_url(akses().'/produk/promo'),'refresh',301);
+			legacy_redirect(base_url(akses().'/produk/promo'),'refresh',301);
 		}else{
 			set_header_message('danger','Hapus Kupon Promo','Gagal menghapus kupon promo');
-			redirect(base_url(akses().'/produk/promo'),'refresh',301);
+			legacy_redirect(base_url(akses().'/produk/promo'),'refresh',301);
 		}
 	}
 	
@@ -144,23 +149,23 @@ class Promo extends CI_Controller {
 						);
 						$this->m_db->add_row('promo_data',$dAdd);
 						set_header_message('success','Tambah Produk Promo','Berhasil menambah produk promo');
-						redirect(base_url(akses().'/produk/promo/produk').'?id='.$promo);
+						legacy_redirect(base_url(akses().'/produk/promo/produk').'?id='.$promo);
 					}else{
 						set_header_message('danger','Tambah Produk Promo','Gagal menambah produk promo');
-						redirect(base_url(akses().'/produk/promo/produk').'?id='.$promo);
+						legacy_redirect(base_url(akses().'/produk/promo/produk').'?id='.$promo);
 					}
 				}elseif($aksi=="delete"){
 					$this->m_db->delete_row('promo_data',$sCek);
 					set_header_message('success','Tambah Produk Promo','Berhasil menghapus produk promo');
-					redirect(base_url(akses().'/produk/promo/produk').'?id='.$promo);
+					legacy_redirect(base_url(akses().'/produk/promo/produk').'?id='.$promo);
 				}
 			}else{
 				set_header_message('danger','Tambah Produk Promo','Gagal menambah produk promo');
-				redirect(base_url(akses().'/produk/promo'));
+				legacy_redirect(base_url(akses().'/produk/promo'));
 			}
 		}else{
 			set_header_message('danger','Tambah Produk Promo','Gagal menambah produk promo');
-			redirect(base_url(akses().'/produk/promo/produk').'?id='.$promo);
+			legacy_redirect(base_url(akses().'/produk/promo/produk').'?id='.$promo);
 		}
 	}
 	
@@ -193,10 +198,10 @@ class Promo extends CI_Controller {
 	        	);
 	        	$this->m_db->edit_row('promo',$dPromo,array('promo_id'=>$promoid));
 	        	set_header_message('success','Tambah Banner Promo','Berhasil menambah banner promo');
-				redirect(base_url(akses().'/produk/promo'));
+				legacy_redirect(base_url(akses().'/produk/promo'));
 	        }else{
 				set_header_message('danger','Tambah Banner Promo','Gagal menambah banner promo');
-				redirect(base_url(akses().'/produk/promo'));
+				legacy_redirect(base_url(akses().'/produk/promo'));
 			}
 		}else{
 			$tgl=date("Y-m-d");
@@ -229,14 +234,14 @@ class Promo extends CI_Controller {
 			if($this->m_db->edit_row('promo',$d,$s)==TRUE)
 			{
 				set_header_message('success','Hapus Banner Promo','Berhasil menghapus banner');
-				redirect(base_url(akses().'/produk/promo'));
+				legacy_redirect(base_url(akses().'/produk/promo'));
 			}else{
 				set_header_message('danger','Hapus Banner Promo','Gagal menghapus banner');
-				redirect(base_url(akses().'/produk/promo'));
+				legacy_redirect(base_url(akses().'/produk/promo'));
 			}
 		}else{
 			set_header_message('danger','Hapus Banner Promo','Gagal menghapus banner');
-			redirect(base_url(akses().'/produk/promo'));
+			legacy_redirect(base_url(akses().'/produk/promo'));
 		}
 	}
 	

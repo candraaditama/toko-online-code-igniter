@@ -1,4 +1,9 @@
 <?php
+
+namespace App\Controllers;
+
+use CI_Controller;
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Login extends CI_Controller {
@@ -26,20 +31,20 @@ class Login extends CI_Controller {
 				{
 					if(empty($ref))
 					{
-						redirect(base_url());
+						legacy_redirect(base_url());
 					}else{
-						redirect($ref);
+						legacy_redirect($ref);
 					}
 				}else{
-					redirect(base_url().$akses.'/dashboard');
+					legacy_redirect(base_url().$akses.'/dashboard');
 				}				
 			}else{
 				$this->session->set_flashdata('info','Gagal login karena kesalahan username dan password');
 				if(empty($ref))
 				{
-					redirect(base_url().'login');
+					legacy_redirect(base_url().'login');
 				}else{
-					redirect(base_url().'login').'?ref='.$ref;
+					legacy_redirect(base_url().'login').'?ref='.$ref;
 				}
 			}
 		}else{

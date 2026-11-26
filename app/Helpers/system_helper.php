@@ -175,7 +175,7 @@ if(!function_exists('field_value'))
 
 if(!function_exists('field_value_custom'))
 {
-	function field_value_custom($table,$where=array(),$output)
+	function field_value_custom($table,$where,$output)
 	{
 		$CI=& get_instance();
 		$CI->load->library('m_db');		
@@ -208,7 +208,7 @@ if(!function_exists('count_data'))
 
 if(!function_exists('sum_data'))
 {
-	function sum_data($table,$where=array(),$field)
+	function sum_data($table,$where,$field)
 	{
 		$CI=& get_instance();
 		$CI->load->library('m_db');

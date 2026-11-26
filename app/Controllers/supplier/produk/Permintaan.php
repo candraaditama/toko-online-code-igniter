@@ -1,4 +1,9 @@
 <?php
+
+namespace App\Controllers\Supplier\Produk;
+
+use CI_Controller;
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Permintaan extends CI_Controller {
@@ -76,10 +81,10 @@ class Permintaan extends CI_Controller {
 				);
 				$this->m_db->edit_row('pembelian',$dStatus,$sBeli);
 				set_header_message('success','Proses Permintaan','Berhasil memproses permintaan produk');
-				redirect(base_url(akses().'/produk/permintaan'));
+				legacy_redirect(base_url(akses().'/produk/permintaan'));
 			}else{
 				set_header_message('danger','Proses Permintaan','Gagal memproses permintaan produk');
-				redirect(base_url(akses().'/produk/permintaan'));
+				legacy_redirect(base_url(akses().'/produk/permintaan'));
 			}
 		}else{
 			$meta['judul']="Detail Permintaan Produk";

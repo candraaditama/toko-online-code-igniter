@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Libraries;
+
 /**
  * RajaOngkir CodeIgniter Library
  * Digunakan untuk mengkonsumsi API RajaOngkir dengan mudah
@@ -7,9 +9,9 @@
  * @author Damar Riyadi <damar@tahutek.net>
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
-require_once 'RajaOngkir/Endpoints.php';
+require_once __DIR__ . '/RajaOngkir/Endpoints.php';
 
-class RajaOngkir extends Endpoints {
+class RajaOngkir extends \App\Libraries\RajaOngkir\Endpoints{
 
 	private $ci;
     private $api_key;

@@ -1,4 +1,9 @@
 <?php
+
+namespace App\Controllers\Bos\Produk;
+
+use CI_Controller;
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Ukuran extends CI_Controller {
@@ -33,13 +38,13 @@ class Ukuran extends CI_Controller {
 			if($this->mod_produk->ukuran_add($nama)==TRUE)
 			{
 				set_header_message('success','Tambah Ukuran Produk','Berhasil menambahkan Ukuran Produk');
-				redirect(base_url(akses().'/produk/ukuran'),'refresh',301);
+				legacy_redirect(base_url(akses().'/produk/ukuran'),'refresh',301);
 			}else{
 				set_header_message('danger','Tambah Ukuran Produk','Gagal menambahkan Ukuran Produk');
-				redirect(base_url(akses().'/produk/ukuran'),'refresh',301);
+				legacy_redirect(base_url(akses().'/produk/ukuran'),'refresh',301);
 			}			
 		}else{
-			redirect(base_url(akses().'/produk/ukuran'),'refresh',301);
+			legacy_redirect(base_url(akses().'/produk/ukuran'),'refresh',301);
 		}
 	}
 	
@@ -55,10 +60,10 @@ class Ukuran extends CI_Controller {
 			if($this->mod_produk->ukuran_edit($ukuranid,$nama)==TRUE)
 			{
 				set_header_message('success','Ubah Ukuran Produk','Berhasil mengubah Ukuran Produk');
-				redirect(base_url(akses().'/produk/ukuran'),'refresh',301);
+				legacy_redirect(base_url(akses().'/produk/ukuran'),'refresh',301);
 			}else{
 				set_header_message('danger','Ubah Ukuran Produk','Gagal mengubah Ukuran Produk');
-				redirect(base_url(akses().'/produk/ukuran'),'refresh',301);
+				legacy_redirect(base_url(akses().'/produk/ukuran'),'refresh',301);
 			}			
 		}else{
 			$id=$this->input->get('id',TRUE);
@@ -76,10 +81,10 @@ class Ukuran extends CI_Controller {
 		if($this->mod_produk->ukuran_delete($id)==TRUE)
 		{
 			set_header_message('success','Hapus Ukuran Produk','Berhasil menghapus Ukuran Produk');
-			redirect(base_url(akses().'/produk/ukuran'),'refresh',301);
+			legacy_redirect(base_url(akses().'/produk/ukuran'),'refresh',301);
 		}else{
 			set_header_message('danger','Hapus Ukuran Produk','Gagal menghapus Ukuran Produk');
-			redirect(base_url(akses().'/produk/ukuran'),'refresh',301);
+			legacy_redirect(base_url(akses().'/produk/ukuran'),'refresh',301);
 		}
 	}
 }

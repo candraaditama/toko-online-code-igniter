@@ -1,4 +1,9 @@
 <?php
+
+namespace App\Controllers\Bos\Laporan;
+
+use CI_Controller;
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Penjualan extends CI_Controller {
@@ -39,7 +44,7 @@ class Penjualan extends CI_Controller {
 			$this->load->view(akses().'/laporan/penjualan/detailview',$d);
 			$this->load->view(akses().'/laporan/template_laporan/footer');
 		}else{
-			redirect(base_url(akses().'/laporan/penjualan'));
+			legacy_redirect(base_url(akses().'/laporan/penjualan'));
 		}
 	}
 	
@@ -60,7 +65,7 @@ class Penjualan extends CI_Controller {
 			$this->load->view(akses().'/laporan/penjualan/detailview',$d);
 			$this->load->view(akses().'/laporan/template_laporan/footer');
 		}else{
-			redirect(base_url(akses().'/laporan/penjualan'));
+			legacy_redirect(base_url(akses().'/laporan/penjualan'));
 		}
 	}
 	
@@ -83,7 +88,7 @@ class Penjualan extends CI_Controller {
 			$this->load->view(akses().'/laporan/penjualan/detailview',$d);
 			$this->load->view(akses().'/laporan/template_laporan/footer');
 		}else{
-			redirect(base_url(akses().'/laporan/penjualan'));
+			legacy_redirect(base_url(akses().'/laporan/penjualan'));
 		}
 	}
 }

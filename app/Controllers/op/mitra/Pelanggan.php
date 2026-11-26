@@ -1,4 +1,9 @@
 <?php
+
+namespace App\Controllers\Op\Mitra;
+
+use CI_Controller;
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Pelanggan extends CI_Controller
@@ -30,10 +35,10 @@ class Pelanggan extends CI_Controller
 		if($this->mod_pelanggan->pelanggan_delete($id)==TRUE)
 		{
 			set_header_message('success','Hapus Pelanggan','Berhasil menghapus pelanggan');
-			redirect(base_url(akses().'/mitra/pelanggan'));
+			legacy_redirect(base_url(akses().'/mitra/pelanggan'));
 		}else{
 			set_header_message('danger','Hapus Pelanggan','Gagal menghapus pelanggan');
-			redirect(base_url(akses().'/mitra/pelanggan'));
+			legacy_redirect(base_url(akses().'/mitra/pelanggan'));
 		}
 	}
 	

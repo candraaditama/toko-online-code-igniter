@@ -2,7 +2,7 @@
 echo asset_select2();
 if(empty($data))
 {
-	redirect(base_url(akses().'/mitra/outlet'));
+	legacy_redirect(base_url(akses().'/mitra/outlet'));
 }
 foreach($data as $row){	
 }

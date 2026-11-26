@@ -6,9 +6,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title><?=$judul;?></title>
-    <link href="<?=base_url();?>assets/html/css/bootstrap.css" rel="stylesheet">
+    <link href="<?=base_url();?>assets/html/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?=base_url();?>assets/html/css/font-awesome.min.css" rel="stylesheet">
+    <link href="<?=base_url();?>assets/html/css/font-awesome-v4-shims.min.css" rel="stylesheet">
     <link href="<?=base_url();?>assets/html/css/jquery.bxslider.css" rel="stylesheet">
+    <link href="<?=base_url();?>assets/html/css/legacy-bs3.css" rel="stylesheet">
     <link href="<?=base_url();?>assets/html/css/style.css" rel="stylesheet">
     <link href="<?=base_url();?>assets/style.css" rel="stylesheet">    
     <script src="<?=base_url();?>assets/html/js/jquery.js"></script>

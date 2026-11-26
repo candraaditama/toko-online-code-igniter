@@ -1,4 +1,9 @@
 <?php
+
+namespace App\Controllers;
+
+use CI_Controller;
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Akun extends CI_Controller
@@ -9,7 +14,7 @@ class Akun extends CI_Controller
 		$this->load->library('m_db');
 		if(akses()!="member")
 		{
-			redirect(base_url());
+			legacy_redirect(base_url());
 		}
 	}
 	
@@ -49,9 +54,9 @@ class Akun extends CI_Controller
 				'nama'=>$nama,
 				);
 				$this->m_db->edit_row('userlogin',$d2,$s2);
-				redirect(base_url().'akun');
+				legacy_redirect(base_url().'akun');
 			}else{
-				redirect(base_url().'akun');
+				legacy_redirect(base_url().'akun');
 			}
 		}else{
 			$meta['judul']="Profil | ".baca_konfig('nama-aplikasi');

@@ -1,4 +1,9 @@
 <?php
+
+namespace App\Controllers;
+
+use CI_Controller;
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Member extends CI_Controller
@@ -15,12 +20,12 @@ class Member extends CI_Controller
 		{
 			if(akses()=="member")
 			{
-				redirect(base_url());
+				legacy_redirect(base_url());
 			}else{
-				redirect(base_url());
+				legacy_redirect(base_url());
 			}
 		}else{
-			redirect(base_url().'member/login');
+			legacy_redirect(base_url().'member/login');
 		}		
 	}
 	
@@ -66,16 +71,16 @@ class Member extends CI_Controller
 				);
 				if($this->m_db->add_row('pelanggan',$d)==TRUE)
 				{
-					redirect(base_url().'member/login');
+					legacy_redirect(base_url().'member/login');
 				}else{
 					$s=array(
 					'user_id'=>$userid,
 					);
 					$this->m_db->delete_row('userlogin',$s);
-					redirect(base_url().'member/daftar');
+					legacy_redirect(base_url().'member/daftar');
 				}
 			}else{
-				redirect(base_url().'member/daftar');
+				legacy_redirect(base_url().'member/daftar');
 			}
 		}else{
 			$meta['judul']="Member Register | ".baca_konfig('nama-aplikasi');

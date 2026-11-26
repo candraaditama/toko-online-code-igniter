@@ -1,7 +1,7 @@
 <?php
 if(empty($data))
 {
-	redirect(base_url());
+	legacy_redirect(base_url());
 }
 foreach($data as $row){	
 }

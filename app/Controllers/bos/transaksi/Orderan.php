@@ -1,4 +1,9 @@
 <?php
+
+namespace App\Controllers\Bos\Transaksi;
+
+use CI_Controller;
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Orderan extends CI_Controller {
@@ -57,10 +62,10 @@ class Orderan extends CI_Controller {
 			if($this->mod_transaksi->konfirmasi_pembayaran($penjualanid,$invoice)==TRUE)
 			{
 				set_header_message('success',"Konfirmasi Pembayaran",'Berhasil menerima pembayaran order');
-				redirect(base_url(akses().'/transaksi/orderan'));
+				legacy_redirect(base_url(akses().'/transaksi/orderan'));
 			}else{
 				set_header_message('danger',"Konfirmasi Pembayaran",'Gagal menerima pembayaran order');
-				redirect(base_url(akses().'/transaksi/orderan'));
+				legacy_redirect(base_url(akses().'/transaksi/orderan'));
 			}
 		}else{
 			$meta['judul']="Konfirmasi Pembayaran";
@@ -81,10 +86,10 @@ class Orderan extends CI_Controller {
 		if($this->m_db->delete_row('penjualan',$s)==TRUE)
 		{
 			set_header_message('success',"Hapus Order",'Berhasil Hapus Order');
-			redirect(base_url(akses().'/transaksi/orderan'));
+			legacy_redirect(base_url(akses().'/transaksi/orderan'));
 		}else{
 			set_header_message('danger',"Hapus Order",'Gagal Hapus Order');
-			redirect(base_url(akses().'/transaksi/orderan'));
+			legacy_redirect(base_url(akses().'/transaksi/orderan'));
 		}
 	}
 }
